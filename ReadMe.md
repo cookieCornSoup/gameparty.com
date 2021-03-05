@@ -50,3 +50,18 @@
 
 
 - 필터 별 파티 메치메이킹
+
+
+
+# Specification
+
+| Table | Description |
+| ---------     | -------------------------------------------------- |
+| User          | gameparty에 종속된 유저정보 로그인시 사용  
+| Social        | 채널정보  로그인시 사용   
+| Profile       | 유저 프로필
+| GameAccount   | 연결된 게임계정, User의 id를 외래키로 사용함.   
+| UserLikes     | 유저가 유저를 추천한 정보. User id값 2개를 외래키로 사용함
+| UserReports   | 유저신고 정보. 
+
+ 
