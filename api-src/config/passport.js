@@ -1,4 +1,8 @@
 /* passport의 인스턴스를 만들어 구글 Strategy를 관리 */
+// created by shlifedev at 20210307 03:10.
+// 
+// author email : shlifedev@gmail.com
+
 var passport         = require('passport');
 var GoogleStrategy   = require('passport-google-oauth2').Strategy;
 

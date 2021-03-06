@@ -1,0 +1,16 @@
+{
+    "author-generator.email": "[shlifedev@gmail.com",
+    "author-generator.author": "shlifedev",
+    "author-generator.updateOnSave": true,
+    "author-header": {
+
+        "author": "shlifedev",
+        "contents": [
+            "author email : shlifedev@gmail.com"
+        ],
+        "auto-comment-type": "//",
+        "auto-space": true,
+        "auto-title": true,
+        "auto-date-type": 1
+    }
+}
