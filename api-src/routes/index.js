@@ -3,10 +3,22 @@ const fs = require('fs');
 const path = require('path'); 
 const routes = [];
 
-fs.readdirSync(__dirname).filter(file =>{
+const apiRouter = path.join(__dirname, "api-router");
+const viewRouter = path.join(__dirname, "view-router");
+
+
+
+fs.readdirSync(apiRouter).filter(file =>{
     return (file.indexOf('.') !== 0) && (file !== "index.js") && (file.slice(-3) === '.js');
 }).forEach(file =>{
-    routes.push(require(path.join(__dirname, file))); 
+    routes.push(require(path.join(apiRouter, file))); 
+    console.log(file, ' 라우터 자동등록 ');
+});
+
+fs.readdirSync(viewRouter).filter(file =>{
+    return (file.indexOf('.') !== 0) && (file !== "index.js") && (file.slice(-3) === '.js');
+}).forEach(file =>{
+    routes.push(require(path.join(viewRouter, file))); 
     console.log(file, ' 라우터 자동등록 ');
 });
  

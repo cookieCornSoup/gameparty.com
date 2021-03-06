@@ -1,6 +1,9 @@
-var express  = require('express');
-var router   = express.Router();
-var passport = require('../config/passport.js');
+const express  = require('express');
+const router   = express.Router(); 
+const passport = require('../../config/passport.js'); 
+
+// 라우터 URL 지정
+const URL = "/auth";
 
 router.get('/login', function(req,res){
   res.render('auth/login');
@@ -25,5 +28,5 @@ function authSuccess(req, res) {
 
 module.exports ={
   router,
-  url : "/auth"
+  url : URL
 } ;
