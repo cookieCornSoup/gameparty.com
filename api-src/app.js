@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const session   = require('express-session');
 const passport  = require('passport');
 const sequelize = require('./models/index').sequelize;
-const test = require('./routes/index'); 
+
+const route = require('./routes/index'); 
 
 
 
@@ -19,11 +20,8 @@ app.use(session({secret:'x7n3816x019327v9n9x8z0782', resave: false, saveUninitia
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Routes
-app.use('/', require('./routes/main'));
-app.use('/auth', require('./routes/auth'));
-
-
+ 
+route.executeRoute(app);
 // view engine
 app.set("view engine", 'ejs');
 

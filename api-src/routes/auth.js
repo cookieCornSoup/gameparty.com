@@ -23,4 +23,7 @@ function authSuccess(req, res) {
   res.redirect('/');
 }
 
-module.exports = router;
+module.exports ={
+  router,
+  url : "/auth"
+} ;
