@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const session   = require('express-session');
 const passport  = require('passport');
 const sequelize = require('./models/index').sequelize;
-
+const test = require('./routes/index'); 
 
 
 
