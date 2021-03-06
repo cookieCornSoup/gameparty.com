@@ -2,9 +2,9 @@
 // 
 // author email : shlifedev@gmail.com
 
-var express  = require('express');
-var router   = express.Router();
-
+const express  = require('express');
+const router   = express.Router();
+const UserController = require('../../controller/userController');
 // 라우터 URL 지정
 const URL = "/api";
 
