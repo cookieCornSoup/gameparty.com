@@ -18,10 +18,14 @@ class ProfileController
         const userId = token.id;
         const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce);
 
-        if(result){
-            res.send(result);
+        if(typeof result === ErrorMessage){
+            if(result.error == "Profile Already Exist"){
+                res.status(404).json(result);
+            }else{
+                res.status(400).json(result);
+            }
         }else{
-            res.status(400).json(new ErrorMessage('Profile Create Error', 'error'))
+            res.send(result); 
         }
     }    
 }

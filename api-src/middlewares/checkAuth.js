@@ -15,6 +15,7 @@ async function checkAuth(req, res, next) {
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
             console.error(err);
+            res.statusCode = 401;
             res.send(err);
         } else {
             console.log("user auth successfully => " , decoded)

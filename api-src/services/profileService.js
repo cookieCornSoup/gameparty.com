@@ -2,6 +2,7 @@
 // 
 // author email : shlifedev@gmail.com
 
+const ErrorMessage = require('../global/error-message');
 const models = require('../models');
 class ProfileService {
 
@@ -17,7 +18,7 @@ class ProfileService {
        
         const profile = await this.findProfileByUserId(userid);
         if(profile){
-            return null;
+            return new ErrorMessage("Profile Already Exist", "프로필이 이미 존재합니다.");
         }else{
             const create = await models.Profile.create({
                 nickname : nickname,
