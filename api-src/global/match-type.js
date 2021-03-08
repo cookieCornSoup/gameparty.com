@@ -1,0 +1,21 @@
+
+class LOL_MATCH_TYPE{
+    NORMAL = 0;
+    RANK_SOLO = 1;
+    RANK_5x5 = 2;
+    TFT = 3;
+}
+
+class VALORANT_MATCH_TYPE{
+    NORMAL = 0;
+    RANK_SOLO = 1;
+}
+
+class BATTLE_GROUND_MATCH_TYPE{
+    NORMAL = 0;
+}
+module.exports = {
+    LOL_MATCH_TYPE : new LOL_MATCH_TYPE(),
+    VALORANT_MATCH_TYPE : new VALORANT_MATCH_TYPE(),
+    BATTLE_GROUND_MATCH_TYPE : new BATTLE_GROUND_MATCH_TYPE()
+}
