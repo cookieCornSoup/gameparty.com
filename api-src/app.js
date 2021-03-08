@@ -8,8 +8,11 @@ const bodyParser = require('body-parser');
 const session   = require('express-session');
 const passport  = require('passport');
 const sequelize = require('./models/index').sequelize;
+require('dotenv').config();
 
+ 
 const route = require('./routes/index'); 
+
 
 
 
@@ -23,16 +26,15 @@ app.use(session({secret:'x7n3816x019327v9n9x8z0782', resave: false, saveUninitia
 // Passport setting
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false})); 
 
- 
+
 route.executeRoute(app);
 // view engine
 app.set("view engine", 'ejs');
 
-//body parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false})); 
-
+ 
 //static assets
 app.use(express.static('public'));
 

@@ -1,9 +1,10 @@
 // created by shlifedev at 20210307 03:10.
 // 
 // author email : shlifedev@gmail.com
-
-/* 올바른 이메일 양식인가? */
+ 
 class StringFormatValidator{ 
+    
+    /* 올바른 이메일 양식인가? */
     validateEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
@@ -15,4 +16,4 @@ class StringFormatValidator{
     }
 }
  
-module.exports = new StringFormatValidator();
+module.exports = new StringFormatValidator(); 
