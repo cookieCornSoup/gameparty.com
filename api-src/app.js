@@ -12,15 +12,7 @@ require('dotenv').config();
 
  
 const route = require('./routes/index'); 
-
-
-
-
-sequelize.sync().then( (data)=>{
-    //console.log(data);
-}).catch((err)=>{
-    //console.log(err);
-});
+ 
  
 app.use(session({secret:'x7n3816x019327v9n9x8z0782', resave: false, saveUninitialized:true}));
 // Passport setting
@@ -39,7 +31,32 @@ app.set("view engine", 'ejs');
 app.use(express.static('public'));
 
 
+
+
+
+
+// sequelize.sync().then((data) => {
+//   //console.log(data);
+// }).catch((err) => {
+//   //console.log(err);
+// });
+
+
+// tests
+
+
+// const userService = require('./services/userService');
+// for(let i = 0; i < 1000; i++){ 
+//   const id = 'test'+i+'@gmail.com';
+//   const pw = '40b254399e9102faeacbedfab54515de638eaf388ff99de8e8e39aacdf7f3e1ed16f234d5cfa316300cc71cdd860bd67a3082b2e4891de90db793d920d1fd68a'
+//   const salt = '1146920786558';
+//   userService.create(id,pw,salt); 
+// }
+  
+  
+
 var port = 3001;
 app.listen(port, function(){
   console.log('server on! http://localhost:'+port);
 });
+

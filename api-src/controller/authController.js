@@ -12,7 +12,7 @@ class AuthController{
 
     /* 로그인 함수 */
     async signIn(req, res) { 
-        let user = await UserService.fineUserByEmail(req.body.email);
+        let user = await UserService.findUserByEmail(req.body.email);
         if (user) {
             let email = req.body.email;
             let pw = req.body.password;
@@ -25,7 +25,7 @@ class AuthController{
                         id: user.id,
                         email : user.email
                     }, process.env.JWT_SECRET, {
-                        expiresIn: '1m',
+                        expiresIn: '60m',
                         issuer : 'shlifedev'
                     });
                     res.json(token);
@@ -55,6 +55,7 @@ class AuthController{
         if(!token) {
             return res.status(403).json(new ErrorMessage("Cannot found token", "not logged in!")); 
         }  
+         
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded)=>{
             if(err){
                 console.error(err);

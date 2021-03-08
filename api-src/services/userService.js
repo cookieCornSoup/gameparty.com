@@ -3,11 +3,9 @@
 // author email : shlifedev@gmail.com
  
 const models = require('../models');
-class UserService{
-
-    
-    async fineUserByEmail(email){
-        let user = await models.User.findOne({
+class UserService{ 
+    async findUserByEmail(email){
+        const user = await models.User.findOne({
             where : {
                 'email' : email
             }
@@ -16,17 +14,22 @@ class UserService{
     }
     // 신규 유저 생성
     async create (email, hashPassword, salt){ 
-        user = await fineUserByEmail(email); 
+       
+        const user = await this.findUserByEmail(email); 
         console.log("[LOG]"  + user);
         if(user){
             return null;
         }
         else{
-            return await models.User.create({
-                'email' : email,
-                'password' : hashPassword,
-                'salt' : salt
-            });
+            try{
+                return await models.User.create({
+                    'email' : email,
+                    'password' : hashPassword,
+                    'salt' : salt
+                });
+            }catch(err){
+                return null;
+            } 
         }
     }
 }

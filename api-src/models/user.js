@@ -9,6 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Post, {
         foreignKey: "posterId"
       });
+      
+      //게임 어카운트 관계설정
+      User.hasMany(models.GameAccount, {
+        foreignKey: "user-id"
+      });
+
+
       User.hasOne(models.Profile, {foreignKey: "userId", sourceKey: "id"});
     } 
   };
