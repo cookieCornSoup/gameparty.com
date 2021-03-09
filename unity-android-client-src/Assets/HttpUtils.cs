@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
+using System;
+using System.Text;
+
 public class HttpUtils : MonoBehaviour
 {
     private static HttpUtils _instance;
@@ -20,16 +23,33 @@ public class HttpUtils : MonoBehaviour
     }
 
 
+
+    public string JWTDecoder(string jwtToken)
+    {
+        var jwtSplit = jwtToken.Split('.');
+        var decodedBase64 = Convert.FromBase64String(jwtSplit[1]);
+        var decodedString = Encoding.UTF8.GetString(decodedBase64);
+
+        return decodedString;
+    }
     void Awake()
     {
-        string json = "{\"email\":\"shlifedev@gmail.com\",\"password\":\"tjdgo123\"}";
-        Debug.Log(json); 
-        StartCoroutine(Post("http://localhost:3001/api/auth/login", json, (string json)=>{
-            Debug.Log(json);
-        }));
+        string json = "{\"email\":\"shlifedev@gmail.com\",\"password\":\"tjdgo123\"}"; 
+        Post("http://localhost:3001/api/auth/login", json, (string response)=>{
+            Debug.Log(JWTDecoder(response));
+            Debug.Log(response);
+        });
+     
+
+
+    
     }
 
-    IEnumerator Post(string url, string json, System.Action<string> callback)
+    public void Post(string url, string json, System.Action<string> callback)
+    {
+        StartCoroutine(CoPost(url,json,callback));
+    }
+    IEnumerator CoPost(string url, string json, System.Action<string> callback)
     {
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json); 

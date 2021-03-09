@@ -1,7 +1,8 @@
 const ErrorMessage = require('../global/error-message');
 const SuccessMessage = require('../global/success-message');
-const models = require('../models'); 
-const { Op } = require("sequelize");
+const models = require('../models');
+
+
 class GameAccountService{
 
     // 유저가 하는 게임을 모두 리턴
@@ -15,10 +16,8 @@ class GameAccountService{
     // gameType을 소유하고 있다면 리턴
     async findUserGame(userId, gameType){
         const result = await models.GameAccount.findOne({where:{
-            [Op.and]:[
-                {'user-id' : userId},
-                {gameType : gameType}
-            ] 
+            'user-id' : userId,
+            gameType : gameType
         }});
 
         return result;

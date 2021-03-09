@@ -9,7 +9,7 @@ const GameAccountService = require('../services/gameaccountService');
 class GameAccountController{
     async addGame(req, res){
         const token = jwt.decode(req.headers['x-access-token']);
-        const result = await GameAccountService.create(token.id, gameType.LOL, req.body.nickname);
+        const result = await GameAccountService.create(token.id, req.body.gametype, req.body.nickname);
 
         if(typeof result === SuccessMessage){
            return res.status(200).json(result.obj);
