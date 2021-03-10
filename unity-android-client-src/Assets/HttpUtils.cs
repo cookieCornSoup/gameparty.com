@@ -4,10 +4,12 @@ using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System;
-using System.Text;
-
+using System.Text; 
+using Models; 
+using System.Linq;
 public class HttpUtils : MonoBehaviour
-{
+{ 
+    public string baseURL = "http://localhost:3001/";
     private static HttpUtils _instance;
     public static HttpUtils Instance
     {
@@ -22,8 +24,19 @@ public class HttpUtils : MonoBehaviour
         }
     }
 
+    public void SaveToken()
+    {
+
+    }
+
+    private void Awake()
+    { 
+         
 
 
+    }
+
+    // JWT 토큰을 base64로 디코딩함
     public string JWTDecoder(string jwtToken)
     {
         var jwtSplit = jwtToken.Split('.');
@@ -32,31 +45,21 @@ public class HttpUtils : MonoBehaviour
 
         return decodedString;
     }
-    void Awake()
-    {
-        string json = "{\"email\":\"shlifedev@gmail.com\",\"password\":\"tjdgo123\"}"; 
-        Post("http://localhost:3001/api/auth/login", json, (string response)=>{
-            Debug.Log(JWTDecoder(response));
-            Debug.Log(response);
-        });
-     
 
+    public void Post(ReqModel model, System.Action<string> callback)
+    { 
+        StartCoroutine(CoPost(baseURL + model.Resource, model.ToJson(), callback));
+    } 
 
-    
-    }
-
-    public void Post(string url, string json, System.Action<string> callback)
-    {
-        StartCoroutine(CoPost(url,json,callback));
-    }
     IEnumerator CoPost(string url, string json, System.Action<string> callback)
     {
+        Debug.Log(url);
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json); 
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-        request.timeout = 60;
+        request.timeout = 60; 
         yield return request.SendWebRequest();
         if (request.error == null)
         { 
