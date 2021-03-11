@@ -9,7 +9,7 @@ class UserService{
             where : {
                 'email' : email
             }
-        });
+        }); 
         return user;
     }
     // 신규 유저 생성
@@ -22,11 +22,12 @@ class UserService{
         }
         else{
             try{
-                return await models.User.create({
+                const createResult = await models.User.create({
                     'email' : email,
                     'password' : hashPassword,
                     'salt' : salt
                 });
+                
             }catch(err){
                 return null;
             } 

@@ -1,8 +1,8 @@
 // created by shlifedev at 20210307 03:10.
 // 
 // author email : shlifedev@gmail.com
- 
-const ErrorMessage = require('../global/error-message');
+  
+const { Message, Status } = require('../global/message');
 const models = require('../models');
 class ProfileService {
 
@@ -10,23 +10,27 @@ class ProfileService {
     async findProfileByUserId(id) {
         try{
             const profile = models.Profile.findOne({where:{'userId': id}});
-            return profile;
+
+            if(profile){ //프로필이 있으면 프로필데이터 리턴
+                return new Message(Status.SUCCESS , "success", profile);
+            }else{
+                return new Message(Status.DataNotFound , "data not found", []);
+            }
+          
         }
         catch(err){
-            return new ErrorMessage("DB Error", "데이터 베이스 에러");
+            return new Message(Status.DB_ERROR , "DB Error", err);
         }  
     }
 
    
     // 신규 유저 생성
-    async create (userid, nickname, age, sex, introduce){ 
-       
-        const result = await this.findProfileByUserId(userid);
-        if(typeof result === ErrorMessage) return result;
+    async create (userid, nickname, age, sex, introduce){  
+        const result = await this.findProfileByUserId(userid); 
+        //에러 발생시 에러리턴
+        if(result.status == Status.SUCCESS) return new Message(Status.DB_ERROR, "이미 유저 프로필이 있습니다.", []);
 
-        if(result){
-            return new ErrorMessage("Profile Already Exist", "프로필이 이미 존재합니다.");
-        }else{
+        if(result.status == Status.DataNotFound){
             const create = await models.Profile.create({
                 nickname : nickname,
                 age : age,
@@ -34,9 +38,12 @@ class ProfileService {
                 introduce : introduce,
                 userId : userid
             }); 
-            return create;
+            return new Message(Status.SUCCESS, "create successfully!", create);
         } 
+        else{
+            return result;
+        }
     }
 }
 
-module.exports = new ProfileService()
+module.exports = new ProfileService() 

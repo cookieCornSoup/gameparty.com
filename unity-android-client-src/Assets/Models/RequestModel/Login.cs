@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Models.RequestModel.POST
 {
-    public class Login : ReqModel
+    public class Data : ReqModel
     {
-        public string email { get; set;}
+        public string id = "1aW6QcnlKC7JEjshJVCaFsHzYdlGZ2fvJbmFB2KeRgMU";
+
+        public string email { get; set; }
         public string password { get; set; }
 
-     
-        public override string Resource => "api/auth/login";  
-    }
+
+       
+        public override string Resource => "api/auth/login"; 
+    } 
 }

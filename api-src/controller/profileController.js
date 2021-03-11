@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const ProfileService = require('../services/profileService');
-const ErrorMessage = require('../global/error-message');
+const { Status, Message} = require('../global/message');
+const ProfileService = require('../services/profileService'); 
 class ProfileController
 {
     async getProfile(req, res){
@@ -10,7 +10,7 @@ class ProfileController
         if(result){
             res.send(result);
         }else{
-            res.status(400).json(new ErrorMessage('Profile Find Error', 'error'))
+            res.status(400).json(new Message(Status.DB_ERROR, 'Profile Find Error', 'error'))
         }
     }    
     async createProfile(req, res){
@@ -18,7 +18,7 @@ class ProfileController
         const userId = token.id;
         const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce);
 
-        if(typeof result === ErrorMessage){
+        if(result.status != Status.SUCCESS){
             if(result.error == "Profile Already Exist"){
                 res.status(404).json(result);
             }else{

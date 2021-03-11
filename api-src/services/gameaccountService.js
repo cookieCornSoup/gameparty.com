@@ -1,5 +1,5 @@
-const ErrorMessage = require('../global/error-message');
-const SuccessMessage = require('../global/success-message');
+ 
+const { Status, Message } = require('../global/message'); 
 const models = require('../models');
 
 
@@ -26,7 +26,7 @@ class GameAccountService{
     async create(userId, gametype, nickname){
         const game = await this.findUserGame(userId, gametype); 
         if(game){  
-            return new ErrorMessage("Already Registred", "이미 게임 데이터를 등록했습니다.");
+            return new Message(Status.DB_ERROR, "Already Registred", "이미 게임 데이터를 등록했습니다.");
         }else{
             try{
                 const create = await models.GameAccount.create({
@@ -34,11 +34,11 @@ class GameAccountService{
                     nickname : nickname,
                     'user-id' : userId
                 })
-                return new SuccessMessage("Success!", create);
+                return new Message(Status.SUCCESS, "등록 성공", create);
             }
             catch(err)
             {
-                return new ErrorMessage("GameAccount Create Error.", err);
+                return new Message(Status.DB_ERROR, "GameAccount Create Error.", err);
             } 
         }
     }

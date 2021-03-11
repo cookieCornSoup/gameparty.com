@@ -37,13 +37,16 @@ public class LoginView : MonoBehaviour
     {
         OnFocusView();
 
-        loginBtn.onClick.AddListener(() => { 
-            HttpUtils.Instance.Post(new Models.RequestModel.POST.Login() { 
-                email = idInputField.text,
+        loginBtn.onClick.AddListener(() =>
+        {
+           /* HttpUtils.Instance.Post(new Models.RequestModel.POST.Login()
+            {
+                email = idInputField.text, 
                 password = passwordInputField.text,
-            }, (token)=> { 
+            }, (token) =>
+            {
                 Debug.Log(token);
-            });
+            });*/
         });
     }
 

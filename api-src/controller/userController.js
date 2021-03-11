@@ -6,6 +6,7 @@
 const StringUtil = require('../utils/validate/stringFormat');
 const PasswordHelper = require('../utils/helper/passwordHelper');
 const UserService = require('../services/userService');
+const { Message, Status } = require('../global/message');
 
 class UserController { 
     async signUp(req, res, next) { 
@@ -17,25 +18,26 @@ class UserController {
                     let result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
                     if (result) {
                         res.json(result);
+                        return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", [])); 
                     } else {
                         res.statusCode = 400;
-                        res.send("email already registed")
+                        return res.json(new Message(Status.DB_ERROR, "email already registred", [])); 
                     }
                 }
                 catch (err) {
                     console.log("[ERR] " + err);
                     res.statusCode = 400;
-                    res.send("400");
-                }
+                    return res.json(new Message(Status.UNKNOWN, "User service exception", err)); 
+                } 
             }
             else {
                 res.statusCode = 400;
-                res.send("wrong request body");
+                return res.json(new Message(Status.WRONG_REQUEST_DATA, "Wrong Request Data", [])); 
             }
         }
         else {
             res.statusCode = 400;
-            res.send("wrong email");
+            return res.json(new Message(Status.WRONG_REQUEST_DATA, "Wrong Email Format", [])); 
         } 
     }
 
