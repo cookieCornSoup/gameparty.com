@@ -10,7 +10,7 @@ const { Message, Status } = require('../global/message');
 
 class UserController { 
     async signUp(req, res, next) { 
-        console.log("[REQ]" + req.body.email);
+    
         if (StringUtil.validateEmail(req.body.email)) {
             if (req.body.email && req.body.password) {
                 let encryptResult = PasswordHelper.encrypt(req.body.password);
@@ -27,7 +27,7 @@ class UserController {
                 catch (err) {
                     console.log("[ERR] " + err);
                     res.statusCode = 400;
-                    return res.json(new Message(Status.UNKNOWN, "User service exception", err)); 
+                    return res.json(new Message(err.status, err.message,[])); 
                 } 
             }
             else {
