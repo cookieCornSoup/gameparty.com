@@ -1,0 +1,117 @@
+body{
+    margin : 0px;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration : none;
+    color : white;
+}
+.navbar{
+    height : 50px;
+    width : 100%;
+    background: black;
+    border-bottom : 1px solid #555555;
+    display : flex;
+    justify-content : center;
+    color : white;
+}
+.navbar-container{
+    width : 1200px;
+    height : inherit; 
+
+}
+.menu-list{
+    list-style-type : none;
+    display : flex;
+    margin : 0px;
+}
+.navbar-left{
+    display : flex;
+    align-items:center;
+}
+
+h1{
+    margin : 0px;
+}
+.menu{
+    padding-left : 50px;
+}
+.menu-item{
+    padding-right : 50px;
+    height : 50px;
+    line-height : 50px;
+}
+.logo{
+    width : 130px;
+    height : 40px;
+}
+.main{
+    display : flex;
+    justify-content : center;
+}
+#main-video{
+    position : absolute; 
+    top: 49px;
+    height : 400px;
+    width : 100%; 
+    z-index : -100;
+} 
+.main-container{
+    background-color : transparent;
+    height : 400px;
+    width : 1200px;   
+    color : white;  
+    margin : 0 auto;
+}
+.main-title{
+    margin-top : 50px;
+    background-color : transparent;
+    width : 800px;
+    height : 200px; 
+    
+}
+.main-container>center>h1{
+    padding-top : 70px;
+    font-size : 36px;
+    text-align:center;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-container>center>h3{
+    font-size : 16px;
+    text-align:center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-container>center>button{
+    margin-top : 55px;
+    background-color :rgb(219, 97, 40);
+    color : white;
+    border : none;
+    border-radius : 8px;
+    width : 200px;
+    height : 55px;
+    font-size : 24px;
+    text-align:center;;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+ 
+.user-content{
+    height : 500px; 
+}
+.user-ranking{
+    height : 500px; 
+}
+.row{
+    display:flex;
+    justify-content : center;
+}
+.col-8{
+    width : 800px;
+}
+.col-4{
+    width : 400px;
+}
