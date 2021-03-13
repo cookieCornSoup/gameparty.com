@@ -12,16 +12,16 @@ class GameAccountController{
         try{
             const result = await GameAccountService.create(token.id, req.body.gametype, req.body.nickname);
             if(result){
-                res.status(200).json(Status.SUCCESS, "User Game Registed!", {
+                res.status(200).json(new Message(Status.SUCCESS, "User Game Registed!", {
                     gametype : req.body.gametype,
                     nickname : req.body.nickname
-                });
+                }));
             } 
         }catch(err){
-            res.status(400).json(err.status, err.message)
+            res.status(400).json(new Message(err.status, err.message, []))
         }
  
-    } 
+    }  
 }
 
 module.exports = new GameAccountController()

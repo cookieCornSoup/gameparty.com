@@ -36,7 +36,7 @@ class GameAccountService{
     async create(userId, gametype, nickname){
         const game = await this.findUserGame(userId, gametype); 
         if(game){  
-            throw new ServiceError(Status.DB_ERROR, "데이터 베이스에 이미 등록되어 있는 유저입니다.");
+            throw new ServiceError(Status.DB_ERROR,"이미 요청한 게임을 등록한 유저입니다.");
         }else{
             try{
                 const create = await models.GameAccount.create({
