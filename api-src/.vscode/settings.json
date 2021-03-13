@@ -13,5 +13,6 @@
         "auto-space": true,
         "auto-title": true,
         "auto-date-type": 1
-    }
+    },
+    "liveServer.settings.port": 5501
 }
