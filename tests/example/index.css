@@ -96,15 +96,58 @@ h1{
     font-size : 24px;
     text-align:center;;
     font-family: 'Noto Sans KR', sans-serif;
+    cursor : pointer;
 }
 
 
- 
+
+.user-post-wrapper{ 
+    padding-top : 40px;
+}
+.user-post-wrapper > h3{
+    margin : 0px;
+    font-size : 14px;
+    color : #f84103;
+}
+.user-post-item{
+    display : flex; 
+}
+
 .user-content{
     height : 500px; 
 }
 .user-ranking{
     height : 500px; 
+}
+.user-post-profile-photo{
+    width : 120px;
+    height : 120px;
+    border-radius: 50%; 
+    object-fit: cover;
+}
+.user-post-box{ 
+    padding-left : 40px;
+    height : 200px;
+    width : 400px;
+}
+.user-post-box > h2{
+    font-size : 20px;
+}
+.user-post-box > p{
+    font-size : 13px;
+}
+.user-post-box > .user-like-wrapper > span{
+    font-size : 15px;    
+    
+    padding-left : 5px;
+}
+.user-like-wrapper{
+    display : flex;
+    align-items: center; 
+}
+.user-likes{
+    width : 30px;
+    height : 30px; 
 }
 .row{
     display:flex;
@@ -116,3 +159,5 @@ h1{
 .col-4{
     width : 400px;
 }
+
+ 
