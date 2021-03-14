@@ -15,3 +15,4 @@ class LikeController {
         }
     }
 }
+module.exports = new LikeController();

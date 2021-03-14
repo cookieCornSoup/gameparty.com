@@ -15,8 +15,7 @@ class LikeService {
                     likerId: likerId,
                     targetId: targetId
                 }
-            });
-
+            });   
             return like;
         } catch (err) {
             throw new ServiceError(Status.DB_ERROR, err);
@@ -40,9 +39,13 @@ where: {
 
 
     //칭찬 및 사유
-    async like(likerId, targetId, description) {
+    async like(likerId, targetId, reason) {
         try{
-            const like = this.findUserLike(likerId, targetId);
+            //이유를 적지 않았을경우
+            if(!reason){
+                throw new ServiceError(Status.WRONG_REQUEST_DATA, "이유를 등록해야 합니다.");
+            }
+            const like = await this.findUserLike(likerId, targetId); 
             if(like){
                 throw new ServiceError(Status.DB_ERROR, "이미 칭찬한 유저입니다.");
             }else{
