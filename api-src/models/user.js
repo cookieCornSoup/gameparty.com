@@ -14,9 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.GameAccount, {
         foreignKey: "user-id"
       });
+
  
       //유저는 하나의 프로필만 가지므로 hasOne으로 설정
       User.hasOne(models.Profile, {foreignKey: "userId", sourceKey: "id"});
+
+      //유저는 여러 사람을 칭찬할 수 있음
+      User.hasMany(models.Profile, {foreginKey:"likerId", sourceKey:"id" });
     } 
   };
   User.init({
