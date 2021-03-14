@@ -4,7 +4,7 @@
 /* author : shlifedev */
 
 const StringUtil = require('../utils/validate/stringFormat');
-const PasswordHelper = require('../utils/helper/passwordHelper');
+const PasswordHelper = require('../utils/helper/password-helper');
 const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
