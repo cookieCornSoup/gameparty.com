@@ -3,8 +3,8 @@
 // author email : shlifedev@gmail.com
 
 const express  = require('express');
-const gameaccountController = require('../controller/gameaccountController');
-const checkAuth = require('../middlewares/checkAuth');
+const gameaccountController = require('../controller/gameaccount-controller');
+const checkAuth = require('../middlewares/check-auth');
 const router   = express.Router(); 
 // 라우터 URL 지정
 const URL = "/api/gameaccount";

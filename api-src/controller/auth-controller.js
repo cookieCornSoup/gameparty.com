@@ -5,11 +5,10 @@
 
 const StringUtil = require('../utils/validate/stringFormat');
 const PasswordHelper = require('../utils/helper/passwordHelper');
-const UserService = require('../services/userService');
+const UserService = require('../services/user-service');
 const jwt = require('jsonwebtoken');
 const { Message, Status } = require('../global/message');
-class AuthController {
-
+class AuthController { 
     /* 로그인 함수 */
     async signIn(req, res) {
         try {

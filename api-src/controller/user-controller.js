@@ -5,7 +5,7 @@
 
 const StringUtil = require('../utils/validate/stringFormat');
 const PasswordHelper = require('../utils/helper/passwordHelper');
-const UserService = require('../services/userService');
+const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
 class UserController { 

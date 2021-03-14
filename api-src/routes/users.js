@@ -4,7 +4,7 @@
 
 const express  = require('express');
 const router   = express.Router();
-const UserController = require('../controller/userController');
+const UserController = require('../controller/user-controller');
 // 라우터 URL 지정
 const URL = "/api";
 

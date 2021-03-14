@@ -6,7 +6,7 @@ const express  = require('express');
 const router   = express.Router(); 
 // 라우터 URL 지정
 const URL = "/api/auth";
-const AuthController = require('../controller/authController');
+const AuthController = require('../controller/auth-controller');
 
 
 router.post('/login', AuthController.signIn);

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { Status, Message } = require('../global/message');
-const ProfileService = require('../services/profileService');
+const ProfileService = require('../services/profile-service');
 class ProfileController {
     async getProfile(req, res) {
         const token = jwt.decode(req.headers['x-access-token']);

@@ -7,8 +7,8 @@ const router   = express.Router();
 // 라우터 URL 지정
 const URL = "/api/profile"; 
 
-const checkAuth = require('../middlewares/checkAuth');
-const ProfileController = require('../controller/profileController');
+const checkAuth = require('../middlewares/check-auth');
+const ProfileController = require('../controller/profile-controller');
 router.post('/', checkAuth, ProfileController.createProfile );
 router.get('/:id', checkAuth, ProfileController.getProfile );
 

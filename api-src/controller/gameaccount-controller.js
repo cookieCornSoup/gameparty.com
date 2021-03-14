@@ -5,7 +5,7 @@
 const jwt = require('jsonwebtoken');
 const gameType = require('../global/game-type'); 
 const { Status, Message } = require('../global/message');
-const GameAccountService = require('../services/gameaccountService');
+const GameAccountService = require('../services/gameaccount-service');
 class GameAccountController{
     async addGame(req, res){
         const token = jwt.decode(req.headers['x-access-token']);

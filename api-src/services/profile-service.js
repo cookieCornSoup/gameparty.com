@@ -14,7 +14,8 @@ class ProfileService {
 
             if (profile) { //프로필이 있으면 프로필데이터 리턴
                 return profile;
-            } else {
+            } 
+            else {
                 throw new ServiceError(Status.DataNotFound, "프로필을 찾지 못했습니다.");
             }
 
