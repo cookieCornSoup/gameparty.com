@@ -9,7 +9,7 @@ const UserController = require('../controller/userController');
 const URL = "/api";
 
 router.get('/users/:id', function(req,res){
-  let id = req.params.id;
+  const id = req.params.id;
   res.send(id); 
 });
 

@@ -13,14 +13,14 @@ class AuthController {
     /* 로그인 함수 */
     async signIn(req, res) {
         try {
-            let user = await UserService.findUserByEmail(req.body.email);
+            const user = await UserService.findUserByEmail(req.body.email);
             //유저가 이미 있는경우 로그인시도
             if (user) {
-                let email = req.body.email;
-                let pw = req.body.password;
+                const email = req.body.email;
+                const pw = req.body.password;
                 //이메일 검증
                 if (StringUtil.validateEmail(email)) {
-                    let result = PasswordHelper.validate(pw, user.password, user.salt)
+                    const result = PasswordHelper.validate(pw, user.password, user.salt)
                     //로그인 성공
                     if (result === true) {
                         const token = jwt.sign({

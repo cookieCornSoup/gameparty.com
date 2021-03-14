@@ -13,9 +13,9 @@ class UserController {
     
         if (StringUtil.validateEmail(req.body.email)) {
             if (req.body.email && req.body.password) {
-                let encryptResult = PasswordHelper.encrypt(req.body.password);
+                const encryptResult = PasswordHelper.encrypt(req.body.password);
                 try {
-                    let result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
+                    const result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
                     if (result) {
                         res.json(result);
                         return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", [])); 
