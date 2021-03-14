@@ -100,13 +100,22 @@ h1{
 }
 
 
+.user-ranking-wrapper{
+    padding-top : 40px;
+}
+.user-ranking-wrapper > center > h3{
+    margin : 0px;
+    font-size : 17px;
+    color : #f84103;
+}
 
 .user-post-wrapper{ 
     padding-top : 40px;
 }
-.user-post-wrapper > h3{
+ 
+.user-post-wrapper > center >  h3{
     margin : 0px;
-    font-size : 14px;
+    font-size : 17px;
     color : #f84103;
 }
 .user-post-item{
@@ -166,11 +175,12 @@ h1{
 }
 .col-8{
     width : 800px;
-}
-
- 
+} 
 .col-4{ 
     width : 400px;
+}
+.padding-left-40{
+    padding-left : 150;
 }
 
  
