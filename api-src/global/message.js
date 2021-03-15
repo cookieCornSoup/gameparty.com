@@ -11,9 +11,10 @@ class StatusCode{
     SUCCESS = 0;
     DB_ERROR = 1;
     WRONG_REQUEST_DATA = 2;
-    Unauthorized = 3;
+    Unauthorized = 3; 
     TokenError = 4;
     DataNotFound = 5;
+    WRONG_PASSWORD = 6;
     UNKNOWN = 9999;
 }
 module.exports = {
