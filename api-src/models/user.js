@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Profile, {foreignKey: "userId", sourceKey: "id"});
 
       //유저는 여러 사람을 칭찬할 수 있음
-      User.hasMany(models.Profile, {foreginKey:"likerId", sourceKey:"id" });
+      User.hasMany(models.Like, {foreginKey:"likerId", sourceKey:"id" });
     } 
   };
   User.init({
