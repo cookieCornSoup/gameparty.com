@@ -1,0 +1,54 @@
+
+.main{
+    width : 100%;
+    display : flex;
+    justify-content : center;
+}
+#main-video{
+    position : absolute; 
+    top: 49px;
+    height : 400px;
+    width : 100%; 
+    z-index : -100;
+    object-fit: cover;
+} 
+.main-container{ 
+    background-color : transparent;
+    height : 400px;
+    width : 1200px;   
+    color : white;   
+}
+.main-title{
+    margin-top : 50px;
+    background-color : transparent;
+    width : 800px;
+    height : 200px; 
+    
+}
+.main-container>center>h1{
+    padding-top : 70px;
+    font-size : 36px;
+    text-align:center;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-container>center>h3{
+    font-size : 16px;
+    text-align:center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-container>center>button{
+    margin-top : 55px;
+    background-color :rgb(219, 97, 40);
+    color : white;
+    border : none;
+    border-radius : 8px;
+    width : 200px;
+    height : 55px;
+    font-size : 24px;
+    text-align:center;;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor : pointer;
+}
