@@ -7,9 +7,8 @@
 } 
 .user-gameboard-wrapper{
     color:white;
-    background:#111111;
-    font-family: 'Noto Sans KR', sans-serif;  
-    font-weight:700 !important;
+    background:rgb(21,21,22);
+    font-family: 'Noto Sans KR', sans-serif; 
 }
 .gameboard-bar{
     padding-top : 25px;
@@ -20,6 +19,7 @@
     justify-content:space-between; 
 }
 
+ 
 .g-board-bar-left{
     display:inherit;
     align-items:inherit;
@@ -47,6 +47,9 @@
 
 
 
+
+
+
 .g-board-current-match-container{
     width:1140px i !important;
 }
@@ -60,6 +63,10 @@
     flex-wrap: wrap !important;
 } 
 
+.g-board-match-icon{
+    margin-left : 5px; 
+    margin-right : 20px;
+}
 
 
 
@@ -70,4 +77,37 @@
     border-radius: 5%; 
     flex-wrap: wrap !important; 
     margin-bottom:10px;
+}
+
+.match-update-date{ 
+    padding-left : 30px;
+    padding-top : 30px;
+    color : orange;
+}
+
+.match-title{
+    padding-top : 7px;
+    padding-left : 30px;
+}
+
+.match-description{
+    padding-top : 10px;
+    width : 330px;
+    padding-left : 30px;
+}
+
+.match-bottom-wrapper{
+    width : 370px;
+    padding-top : 25px; 
+    display:flex; 
+}
+.match-user-count-ico{
+    margin-top:5px;
+    margin-left:30px;
+}
+.match-user-count{
+    margin-left : 15px;
+}
+.match-join-btn{
+    margin-left : 150px;  
 }
