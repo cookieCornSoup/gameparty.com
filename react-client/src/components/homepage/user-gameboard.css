@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+
+.gameboard-title{  
+    font-size:32px;  
+    padding-top : 30px;
+} 
+.user-gameboard-wrapper{
+    color:white;
+    background:#111111;
+    font-family: 'Noto Sans KR', sans-serif;  
+    font-weight:700 !important;
+}
+.gameboard-bar{
+    padding-top : 25px;
+    width : 100%;
+    height : 50px; 
+    display:flex;
+    align-items:center;
+    justify-content:space-between; 
+}
+
+.g-board-bar-left{
+    display:inherit;
+    align-items:inherit;
+}
+.g-board-bar-left > h3{
+    font-size : 24px;
+}
+
+.g-board-bar-right{
+    display:inherit;
+    align-items:inherit;
+}
+.g-board-match-type-btn{
+     margin-left : 5px;
+}
+.g-board-bar-icon{
+    width : 30px;
+    height : 30px;
+}
+
+
+
+
+
+
+
+
+.g-board-current-match-container{
+    width:1140px i !important;
+}
+
+.g-board-current-match{
+    width:1140px;
+    margin-top:25px; 
+    display:flex; 
+    justify-content:space-between; 
+    overflow : auto;
+    flex-wrap: wrap !important;
+} 
+
+
+
+
+.g-match-card{
+    width : 370px;
+    height : 250px;
+    background-color:rgb(12,12,12);
+    border-radius: 5%; 
+    flex-wrap: wrap !important; 
+    margin-bottom:10px;
+}

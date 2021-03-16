@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 a{
-    text-decoration: none;
-    color : white;
+    text-decoration: none i !important;
+    color : white !important;
 }
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
 }
-.navbar{
+.g-navbar{
     height : 50px;
     width : 100%;
     background: black;

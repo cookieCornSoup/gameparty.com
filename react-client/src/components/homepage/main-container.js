@@ -1,6 +1,6 @@
 import video from '../../assets/main.mp4';
-import './main.css';
-export default function Main() {
+import './homepage.css';
+export default function MainContainer() {
     return (
       <section class ="main">
             <video autoplay="autoplay" loop muted plays-inline="true" defaultmuted id="main-video">

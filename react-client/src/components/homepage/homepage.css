@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .main{
+     
     width : 100%;
     display : flex;
     justify-content : center;
@@ -19,6 +21,7 @@
     color : white;   
 }
 .main-title{
+    font-family: 'Roboto', sans-serif !important;
     margin-top : 50px;
     background-color : transparent;
     width : 800px;
@@ -52,3 +55,65 @@
     font-family: 'Noto Sans KR', sans-serif;
     cursor : pointer;
 }
+
+
+
+
+
+.user-ranking-wrapper{
+    padding-top : 40px;
+}
+.user-ranking-wrapper > center > h3{
+    margin : 0px;
+    font-size : 17px;
+    color : #f84103;
+}
+
+.user-post-wrapper{ 
+    padding-top : 40px;
+}
+ 
+.user-post-wrapper > center >  h3{
+    margin : 0px;
+    font-size : 17px;
+    color : #f84103;
+}
+.user-post-item{
+    display : flex;  
+}
+.category-top{
+    width : 100%;
+    height : 25px; 
+    display:flex;
+    align-content: center;
+    justify-content : center;
+    padding-top : 25px;
+    font-size : 18px;
+}
+
+.user-post-list{
+    padding : 0px;
+}
+
+.user-content{
+    height : 500px; 
+}
+.user-ranking{
+    height : 500px; 
+}
+ 
+.row{
+    display:flex;
+    justify-content : center;
+}
+.col-8{
+    width : 800px;
+} 
+.col-4{ 
+    width : 400px;
+}
+.padding-left-40{
+    padding-left : 150;
+}
+
+ 
