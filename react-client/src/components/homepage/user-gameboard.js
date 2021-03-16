@@ -1,22 +1,30 @@
 import './user-gameboard.css';
-import { Container, Row, Col } from 'react-bootstrap';
-import userIcon from '../../assets/user-icon.png'
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap'; 
+import { Button } from 'react-bootstrap';
 
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+
+function secondToMatchUpdateText(matchUpdateDate){
+    let matchUpdateDateText = "알 수 없음";
+    if (matchUpdateDate <= 60) {
+        matchUpdateDateText = "방금 전";
+    }
+    else {
+        let minute = Math.floor((matchUpdateDate / 60));
+        matchUpdateDateText = minute + "분 전";
+    } 
+    return matchUpdateDateText;
+}
+
+
 export function GameBoardCard(props) {
  
 
     // 초를 분으로 변환
-    let matchUpdateDateText = "알 수 없음";
-    if (props.matchUpdateDate <= 60) {
-        matchUpdateDateText = "방금 전";
-    }
-    else {
-        let minute = Math.floor((props.matchUpdateDate / 60));
-        matchUpdateDateText = minute + "분 전";
-    }
+    let matchUpdateDateText = secondToMatchUpdateText(props.matchUpdateDate);
+     
 
     return (<>
         <div className="g-match-card">
@@ -87,7 +95,7 @@ export function GameBoard(props) {
         }
     ]
 
-    const matchList = sampleData.map(match =><GameBoardCard matchUpdateDate = {match.matchUpdateDate} matchUserMax={match.matchUserMax} matchUserCurrent={match.matchUserCurrent} matchUserMax={match.matchUserMax} matchDescription={match.matchDescription} matchTitle={match.matchTitle}/>);
+    const matchList = sampleData.map(match =><GameBoardCard matchUpdateDate = {match.matchUpdateDate} matchUserCurrent={match.matchUserCurrent} matchUserMax={match.matchUserMax} matchDescription={match.matchDescription} matchTitle={match.matchTitle}/>);
     return (
         <>
             <Container className="g-board-current-match-container">

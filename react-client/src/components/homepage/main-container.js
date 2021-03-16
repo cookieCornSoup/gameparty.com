@@ -15,6 +15,7 @@ export default function MainContainer() {
                         <button> Let's Play </button>      
                 </center>
             </div>
+            
       </section>
     );
 }

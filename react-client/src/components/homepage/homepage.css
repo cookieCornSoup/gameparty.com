@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-.main{
-     
+.main{ 
     width : 100%;
     display : flex;
     justify-content : center;
@@ -11,14 +10,15 @@
     top: 49px;
     height : 400px;
     width : 100%; 
-    z-index : -100;
+    z-index : 0;
     object-fit: cover;
 } 
 .main-container{ 
     background-color : transparent;
-    height : 400px;
+    height : 399px;
     width : 1200px;   
-    color : white;   
+    color : white;    
+    z-index : 1;
 }
 .main-title{
     font-family: 'Roboto', sans-serif !important;
