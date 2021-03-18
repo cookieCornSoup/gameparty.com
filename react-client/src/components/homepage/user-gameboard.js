@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 
 import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useEffect, useState } from 'react';
 
 
 function secondToMatchUpdateText(matchUpdateDate){
@@ -20,16 +21,26 @@ function secondToMatchUpdateText(matchUpdateDate){
 
 
 export function GameBoardCard(props) {
- 
-
+  
+    const [playerCount, setCount] = useState(props.matchUserCurrent);
     // 초를 분으로 변환
-    let matchUpdateDateText = secondToMatchUpdateText(props.matchUpdateDate);
-     
+    const matchUpdateDateText = secondToMatchUpdateText(props.matchUpdateDate);
+    useEffect(() =>{
+        console.log("Hello!"); 
+    });
+
+ 
+    const onClickJoin = (e)=>{
+        alert('테스트 코드 실행'); 
+        setCount(playerCount+1);
+        e.preventDefault();
+    };
+    
 
     return (<>
         <div className="g-match-card">
-            <div className="match-update-date">
-                {matchUpdateDateText}
+            <div className="match-update-date"> 
+                {matchUpdateDateText} 
             </div>
             <div className="match-title">
                 {props.matchTitle}
@@ -39,8 +50,8 @@ export function GameBoardCard(props) {
             </div>
             <div className="match-bottom-wrapper">
                 <FontAwesomeIcon icon={faUser} className="match-user-count-ico" />
-                <p className="match-user-count"> {props.matchUserCurrent}/{props.matchUserMax}명 모집됨</p>
-                <Button className="match-join-btn">입장</Button>
+                <p className="match-user-count"> {playerCount}/{props.matchUserMax}명 모집됨</p>
+                <Button onClick = {onClickJoin} className="match-join-btn">입장</Button>
             </div>
         </div>
     </>)

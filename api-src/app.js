@@ -35,11 +35,11 @@ app.use(express.static('public'));
 
 
 
-// sequelize.sync().then((data) => {
-//   //console.log(data);
-// }).catch((err) => {
-//   //console.log(err);
-// });
+sequelize.sync().then((data) => {
+  //console.log(data);
+}).catch((err) => {
+  //console.log(err);
+});
 
 
 // tests

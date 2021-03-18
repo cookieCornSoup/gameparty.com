@@ -16,9 +16,10 @@ body{
     color : white;
 }
 .navbar-container{
-    width : 1200px;
+    width : 1140px;
     height : inherit; 
-
+    display : flex;
+    justify-content : space-between;
 }
 .menu-list{
     list-style-type : none;
@@ -28,6 +29,11 @@ body{
 .navbar-left{
     display : flex;
     align-items:center;
+}
+.navbar-right{
+    display : flex;
+    color : white;
+    align-items : center;
 }
 
 h1{

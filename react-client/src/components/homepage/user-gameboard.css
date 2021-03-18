@@ -11,7 +11,7 @@
     font-family: 'Noto Sans KR', sans-serif; 
 }
 .gameboard-bar{
-    padding-top : 25px;
+    margin-top : 15px;
     width : 100%;
     height : 50px; 
     display:flex;
@@ -21,6 +21,7 @@
 
  
 .g-board-bar-left{
+    height: inherit;
     display:inherit;
     align-items:inherit;
 }
@@ -29,6 +30,7 @@
 }
 
 .g-board-bar-right{
+    height: inherit;
     display:inherit;
     align-items:inherit;
 }
@@ -79,10 +81,16 @@
     margin-bottom:10px;
 }
 
+.match-owner{
+    color : white;
+    margin-right : 40px;
+}
 .match-update-date{ 
     padding-left : 30px;
     padding-top : 30px;
     color : orange;
+    display : flex;
+    justify-content : space-between;
 }
 
 .match-title{
