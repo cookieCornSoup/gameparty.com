@@ -10,7 +10,7 @@ class GameAccountService{
     async findAllGameAccountsWithUserId(userId){
         try{
             const result = await models.GameAccount.findAll({where:{
-                'user-id' : userId
+                'user_id' : userId
             }});
             return result;
         }
@@ -19,11 +19,10 @@ class GameAccountService{
         }  
     }
     // gameType을 소유하고 있다면 리턴
-    async findUserGame(userId, gameType){
-
+    async findUserGame(userId, gameType){ 
         try{
             const result = await models.GameAccount.findOne({where:{
-                'user-id' : userId,
+                'user_id' : userId,
                 gameType : gameType
             }}); 
             return result;
@@ -64,7 +63,7 @@ class GameAccountService{
                 const create = await models.GameAccount.create({
                     gametype : gametype,
                     nickname : nickname,
-                    'user-id' : userId
+                    'user_id' : userId
                 })
                 return create;
                 }else{
@@ -81,7 +80,7 @@ class GameAccountService{
     // 유저의 uid를 인증하고 db의 verified값을 true로 설정
     async setVerify(userId, uid){
         try{
-            models.GameAccount.update({uid : uid, verified : 1}, {where : {'user-id' : userId}})
+            models.GameAccount.update({uid : uid, verified : 1}, {where : {'user_id' : userId}})
         }
         catch(err){
             throw new ServiceError(Status.DB_ERROR, err.message); 

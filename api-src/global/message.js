@@ -15,6 +15,8 @@ class StatusCode{
     TokenError = 4;
     DataNotFound = 5;
     WRONG_PASSWORD = 6;
+    MATCH_ALREADY_JOINED = 7;
+    MATCH_ID_NOT_FUND = 8;
     UNKNOWN = 9999;
 }
 module.exports = {

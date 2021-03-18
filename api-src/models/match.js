@@ -5,10 +5,10 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Match extends Model {
     static associate(models) {  
-       Match.hasMany(models.User, { foreignKey: 'match-id',
-        sourceKey: 'id' }); 
+    //  Match.hasMany(models.User, { foreignKey: "match-id" });   
+      Match.hasMany(models.User);  
     }
-  };
+  };  
   Match.init({
     title: DataTypes.STRING,
     description: DataTypes.STRING, 
@@ -19,4 +19,4 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Match',
   });
   return Match;
-};
+};    

@@ -11,6 +11,7 @@ const { Message, Status } = require('../global/message');
 class AuthController { 
     /* 로그인 함수 */
     async signIn(req, res) {
+        console.log("로그인 요청 시도..");
         try {
             const user = await UserService.findUserByEmail(req.body.email);
             //유저가 이미 있는경우 로그인시도

@@ -17,7 +17,6 @@ class UserController {
                 try {
                     const result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
                     if (result) {
-                        res.json(result);
                         return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", [])); 
                     } else {
                         res.statusCode = 400;

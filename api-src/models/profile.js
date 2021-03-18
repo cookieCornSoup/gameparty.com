@@ -6,9 +6,10 @@ module.exports = (sequelize, DataTypes) => {
   class Profile extends Model { 
     static associate(models) { 
         Profile.belongsTo(models.User, {foreignKey : "userId", targetKey : "id" });  
-      }
+    
+      }  
   };
-  Profile.init({
+  Profile.init({ 
     nickname: DataTypes.STRING,
     age: DataTypes.TINYINT, 
     sex: DataTypes.TINYINT,

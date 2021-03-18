@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) 
     {
       GameAccount.belongsTo(models.User, {
-        foreignKey: "user-id"
+        foreignKey: "user_id"
       });
     } 
   };

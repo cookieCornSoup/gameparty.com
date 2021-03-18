@@ -27,10 +27,11 @@ fs
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
+    console.log("associate execute " + modelName);
     db[modelName].associate(db);
   }
 });
-
+   
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

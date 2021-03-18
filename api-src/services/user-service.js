@@ -20,6 +20,19 @@ class UserService {
             throw new ServiceError(Status.DB_ERROR, err.message);
         } 
     }
+    async findUserById(id) { 
+        try { 
+            const user = await models.User.findOne({
+                where: {
+                    'id': id
+                }
+            });
+            return user;
+        }
+        catch (err) {
+            throw new ServiceError(Status.DB_ERROR, err.message);
+        } 
+    }
     // 신규 유저 생성
     async create(email, hashPassword, salt) {
         const user = await this.findUserByEmail(email);

@@ -7,17 +7,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here 
       User.hasMany(models.Post, {
-        foreignKey: "posterId"
-      });
-      
-      User.belongsTo(models.Match, {foreginKey : 'match-id', targetKey : "id"}); 
-
-
+        foreignKey: "poster_id"
+      });  
+        
+      User.belongsTo(models.Match, {foreignKey : "match_id"}); 
+  
+ 
       //게임 어카운트 관계설정
       User.hasMany(models.GameAccount, {
-        foreignKey: "user-id"
+        foreignKey: "user_id"
       });
- 
+  
       //유저는 하나의 프로필만 가지므로 hasOne으로 설정
       User.hasOne(models.Profile, {foreignKey: "userId", sourceKey: "id"});
  
