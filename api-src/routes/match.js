@@ -3,9 +3,10 @@
 // author email : shlifedev@gmail.com
 
 const express  = require('express');
+const { createMatch } = require('../controller/match-controller');
 const router   = express.Router();
 
-const checkAuth = require('../middlewares/check-auth'); 
+const checkAuth = require('../middlewares/check-auth');  
 // 라우터 URL 지정
 const URL = "/api/match";
 
@@ -13,7 +14,7 @@ const URL = "/api/match";
 //  방입장 상태에서 연결 끊길시 -> 방에서 자동으로 퇴장
 
 // 매치 생성하기
-router.post('/',  checkAuth);
+router.post('/',  checkAuth, createMatch);
 
 // 매치 가져오기
 router.get('/',  (req,res)=>{res.send('zz');});

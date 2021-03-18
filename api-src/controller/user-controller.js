@@ -9,12 +9,14 @@ const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
 class UserController { 
-    async signUp(req, res, next) { 
-    
+    async signUp(req, res, next) {    
+        
+        console.log(req.body);
         if (StringUtil.validateEmail(req.body.email)) {
             if (req.body.email && req.body.password) {
                 const encryptResult = PasswordHelper.encrypt(req.body.password);
                 try {
+                    
                     const result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
                     if (result) {
                         return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", [])); 

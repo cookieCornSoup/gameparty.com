@@ -61,9 +61,9 @@ app.listen(port, function () {
   try{
  
     // 방생성 및 입장 테스트
-     matchService.createAndJoinMatch(1, '테스트', '테스트', 0, 0).then((x)=>{
-       console.log("로그 ㅡㅡㅡ " + x);
-     });
+    //  matchService.createAndJoinMatch(1, '테스트', '테스트', 0, 0).then((x)=>{
+    //    console.log("로그 ㅡㅡㅡ " + x);
+    //  });
   }
   catch(err){
      console.log("에러 ㅡㅡㅡ \n\n" + err);
