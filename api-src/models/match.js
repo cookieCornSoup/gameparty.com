@@ -5,7 +5,7 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Match extends Model {
     static associate(models) { 
-       Match.hasOne(models.Profile, { foreignKey: "match-id", sourceKey: "id" }); 
+       Match.hasMany(models.Profile, { foreignKey: "match-id", sourceKey: "id" }); 
     }
   };
   Match.init({
