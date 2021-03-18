@@ -1,9 +1,11 @@
 # GameParty.com
- 손쉽게 게임 파티를 모집하는 서비스 
- - 포트폴리오 이므로 리그 오브 레전드만 지원 / 확장가능한 구조로 작성
- - 유니티엔진으로 클라이언트 사이드 렌더링 개발 
- - 리엑트로 웹 클라이언트 개발 + 리엑트를 사용하지않고 개발 (모두 경험하기 위해)
- 
+ 손쉽게 게임 파티를 모집하는 서비스. 해당 프로젝트는 실제 상업용 서비스가 아니며, api서버 및 리액트 프로그래밍, AWS와도커를 이용한 배포를 및 안드로이드 프론트엔드를 학습하기위해 만든 포트폴리오 문서입니다.
+
+# TODO LIST
+ - node.js express를 기반으로한 api서버 작성 contributor : **@shlifedev**, **@gongul**
+ - Android Apllication으로 프론트사이드 개발 contributor : **@cookieCornSoup**
+ - 리액트를 사용한 웹 프론트엔드 및 웹서버 개발 : **@shlifedev**
+ - Docker, AWS를 이용한 라이브서버 배포 contributor : **@shlifedev**
  
 # Service Features & Concept
  - (api-server)같이 게임 할 파티를 손쉽게 모집해주는 서비스
