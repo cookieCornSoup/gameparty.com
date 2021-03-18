@@ -5,8 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model { 
     static associate(models) { 
-        Profile.belongsTo(models.User, {foreignKey : "userId", targetKey : "id" }); 
-        Profile.belongsTo(models.Match, {foreginKey : 'match-id', targetKey : "id"}); 
+        Profile.belongsTo(models.User, {foreignKey : "userId", targetKey : "id" });  
       }
   };
   Profile.init({

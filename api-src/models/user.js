@@ -10,11 +10,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "posterId"
       });
       
+      User.belongsTo(models.Match, {foreginKey : 'match-id', targetKey : "id"}); 
+
+
       //게임 어카운트 관계설정
       User.hasMany(models.GameAccount, {
         foreignKey: "user-id"
       });
-
  
       //유저는 하나의 프로필만 가지므로 hasOne으로 설정
       User.hasOne(models.Profile, {foreignKey: "userId", sourceKey: "id"});
