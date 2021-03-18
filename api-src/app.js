@@ -10,6 +10,7 @@ const passport = require('passport');
 const sequelize = require('./models/index').sequelize;
 require('dotenv').config();
 
+const models = require('./models');
 
 const route = require('./routes/index'); 
 const matchService = require('./services/match-service');
@@ -30,9 +31,16 @@ app.set("view engine", 'ejs');
 //static assets
 app.use(express.static('public'));
 
+ 
 
-
-
+// 매치 초기화
+models.Match.destroy({
+  where:{}
+}).then(()=>{ 
+   console.log("모든 매치 삭제됨");
+}).catch((err)=>{
+   console.log("에러" + err);
+});
 
 
 // sequelize.sync().then((data) => {
