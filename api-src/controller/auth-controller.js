@@ -10,7 +10,6 @@ class AuthController {
     /* 로그인 함수 */
     async signIn(req, res) {
         try {
-            
             const authResult = await AuthService.signIn(req.body.email, req.body.password); 
             const token = jwt.sign({
                 id: authResult.id,
@@ -35,12 +34,12 @@ class AuthController {
             const token = req.headers['x-access-token'];
             //토큰이 없는경우 로그인 상태 X
             if (!token) {
-                return res.status(400).json(new Message(Status.TokenError, "Cannot found token", []));
+                return res.status(400).json(new Message(Status.TOKEN_ERROR, "Cannot found token", []));
             } 
             jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
                 if (err) {
                     console.error(err);
-                    res.status(401).json(new Message(Status.TokenError, "Token verify error", err))
+                    res.status(401).json(new Message(Status.TOKEN_ERROR, "Token verify error", err))
                 } else {
                     console.log("decoded : ", decoded);
                     res.status(200).json(new Message(Status.SUCCESS, "verified!", []));

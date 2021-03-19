@@ -11,12 +11,12 @@ async function checkAuth(req, res, next) {
     const token = req.headers['x-access-token'];
     //토큰이 없는경우 로그인 상태 X
     if (!token) {
-        return res.status(400).json(new Message(Status.TokenError, "Cannot found token", "not logged in!"));
+        return res.status(400).json(new Message(Status.TOKEN_ERROR, "Cannot found token", "not logged in!"));
     }
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
             console.error(err); 
-            return res.status(401).json(new Message(Status.TokenError, "Invalid Token", "토큰 만료 혹은 토큰이 조작됨")); 
+            return res.status(401).json(new Message(Status.TOKEN_ERROR, "Invalid Token", "토큰 만료 혹은 토큰이 조작됨")); 
         } else {
             console.log("user auth successfully => " , decoded)
             next();
