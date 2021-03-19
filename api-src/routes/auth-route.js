@@ -9,6 +9,7 @@ const URL = "/api/auth";
 const AuthController = require('../controller/auth-controller');
 
 
+
 router.post('/login', AuthController.signIn);
 router.post('/verify', AuthController.verify);
 

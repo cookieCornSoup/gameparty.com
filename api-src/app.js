@@ -42,13 +42,13 @@ models.Match.destroy({
 });
 
 
-sequelize.sync({
-  alter:true
-}).then((data) => {
-  //console.log(data);
-}).catch((err) => {
-  console.log("에러" + err);
-});
+// sequelize.sync({
+//   alter:true
+// }).then((data) => {
+//   //console.log(data);
+// }).catch((err) => {
+//   console.log("에러" + err);
+// });
 
 
 // tests

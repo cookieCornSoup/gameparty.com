@@ -15,7 +15,7 @@ const URL = "/api/gameaccount";
  *  /api/gameaccount:
  *    post:
  *      tags:
- *      - product
+ *      - GameAccount (Test)
  *      description:  게임계정을 등록합니다.
  *      produces:
  *      - application/json
@@ -38,6 +38,11 @@ const URL = "/api/gameaccount";
  */
 router.post('/', checkAuth, gameaccountController.addGame); 
 // gameid의 gameaccount가 본인의 것인지 인증하기 위한 verify 수단.verify 완료시 verified 값이 1이됨.
+
+
+
+
+
 router.post('/verify/:gameid');
 
 module.exports ={

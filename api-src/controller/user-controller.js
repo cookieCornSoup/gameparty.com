@@ -8,6 +8,7 @@ const PasswordHelper = require('../utils/helper/password-helper');
 const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
+const jwt = require('jsonwebtoken');
 class UserController { 
     async signUp(req, res, next) {     
         console.log(req.body);
@@ -18,9 +19,20 @@ class UserController {
                     
                     const result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
                     if (result) {
-                        return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", [])); 
-                    } else {
-                        res.statusCode = 400;
+                        res.statusCode = 200;
+
+                        const token = jwt.sign({
+                            id: result.id,
+                            email: result.email
+                        }, process.env.JWT_SECRET, {
+                            expiresIn: process.env.JWT_EXPIRE, //임시 세션설정
+                            issuer: 'shlifedev'
+                        });
+                        
+                        return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", {
+                            token : token
+                        })); 
+                    } else { 
                         return res.json(new Message(Status.DB_ERROR, "email already registred", [])); 
                     }
                 }

@@ -2,19 +2,16 @@
 // created by shlifedev at 20210307 03:10.
 // 
 // author email : shlifedev@gmail.com
-
-const StringUtil = require('../utils/validate/stringFormat');
-const PasswordHelper = require('../utils/helper/password-helper');
-const UserService = require('../services/user-service');
+ 
 const AuthService = require('../services/auth-service');
 const jwt = require('jsonwebtoken');
 const { Message, Status } = require('../global/message');
 class AuthController { 
     /* 로그인 함수 */
     async signIn(req, res) {
-        
         try {
-            const authResult = AuthService.signIn(req.body.email, req.body.password);
+            
+            const authResult = await AuthService.signIn(req.body.email, req.body.password); 
             const token = jwt.sign({
                 id: authResult.id,
                 email: authResult.email
@@ -23,10 +20,11 @@ class AuthController {
                 issuer: 'shlifedev'
             });
             return res.status(400).json(new Message(0, "로그인 성공!", token));
+
         }
-        catch(err){
+        catch (err) {
             return res.status(400).json(new Message(err.status, err.message, []));
-        } 
+        }
     }
 
     /* JWT 토큰 검증 */
