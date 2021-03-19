@@ -16,7 +16,7 @@ class ProfileService {
                 return profile;
             } 
             else {
-                throw new ServiceError(Status.DataNotFound, "프로필을 찾지 못했습니다.");
+                throw new ServiceError(Status.DATA_NOT_FOUND, "프로필을 찾지 못했습니다.");
             }
 
         }

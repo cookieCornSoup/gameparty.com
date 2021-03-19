@@ -8,10 +8,9 @@ const router   = express.Router();
 const URL = "/api/profile"; 
 
 const checkAuth = require('../middlewares/check-auth');
-const ProfileController = require('../controller/profile-controller');
+const ProfileController = require('../controller/profile-controller'); 
 router.post('/', checkAuth, ProfileController.createProfile );
-router.get('/:id', checkAuth, ProfileController.getProfile );
-
+router.get('/:id', checkAuth, ProfileController.getProfile ); 
 module.exports ={
   router,
   url : URL

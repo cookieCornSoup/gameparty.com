@@ -9,8 +9,7 @@ const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
 class UserController { 
-    async signUp(req, res, next) {    
-        
+    async signUp(req, res, next) {     
         console.log(req.body);
         if (StringUtil.validateEmail(req.body.email)) {
             if (req.body.email && req.body.password) {

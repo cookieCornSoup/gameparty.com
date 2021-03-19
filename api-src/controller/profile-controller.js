@@ -17,11 +17,10 @@ class ProfileController {
     async updateProfile(req, res) {
 
         const token = jwt.decode(req.headers['x-access-token']);
-        const userId = token.id;
-
+        const userId = token.id; 
         try {
             const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce);
-            res.status(200).json(new Message(0, 'Profile Updated!', result));
+            res.status(201).json(new Message(0, 'Profile Updated!', result));
         }
         catch (err) {
             res.status(400).json(new Message(err.status, err.message, []))
@@ -31,6 +30,7 @@ class ProfileController {
     async createProfile(req, res) {
         const token = jwt.decode(req.headers['x-access-token']);
         const userId = token.id;
+        console.log(req.file);
         try{
             const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce); 
             if (result) {

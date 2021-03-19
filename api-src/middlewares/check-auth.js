@@ -11,7 +11,7 @@ async function checkAuth(req, res, next) {
     const token = req.headers['x-access-token'];
     //토큰이 없는경우 로그인 상태 X
     if (!token) {
-        return res.status(403).json(new Message(Status.TokenError, "Cannot found token", "not logged in!"));
+        return res.status(400).json(new Message(Status.TokenError, "Cannot found token", "not logged in!"));
     }
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
