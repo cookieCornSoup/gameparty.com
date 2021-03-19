@@ -13,7 +13,7 @@ namespace EnumGenerator
         }
         static void Main(string[] args)
         {
-            string path = "Enum.json";
+            string path = @"..\Enum.json";
             string readedJson = System.IO.File.ReadAllText(path);
 
             SerializedEnum serializedEnum = Newtonsoft.Json.JsonConvert.DeserializeObject<SerializedEnum>(readedJson);
