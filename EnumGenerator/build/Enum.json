@@ -1,5 +1,5 @@
 {
-  "EnumClassName": "MessageCode",
+  "EnumClassName": "StatusCode",
   "Datas": [
     {
       "Name": "SUCCESS",
