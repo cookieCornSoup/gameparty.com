@@ -5,11 +5,11 @@ const swaggereJsdoc = require('swagger-jsdoc');
 const options = {
     swaggerDefinition: {
         info: {
-            title: 'Test API',
+            title: 'GameParty API',
             version: '1.0.0',
-            description: 'Test API with express',
+            description: 'GameParty API',
         },
-        host: 'localhost:3001',
+        host: '-',
         basePath: '/'
     },
     apis: ['./routes/*.js', './swagger/*']

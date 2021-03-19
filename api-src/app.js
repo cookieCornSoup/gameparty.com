@@ -9,7 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const sequelize = require('./models/index').sequelize;
 require('dotenv').config();
-const {swaggerUi, specs} = require('./modules/swagger');
+const {swaggerUi, specs} = require('./utils/swagger');
 
 const models = require('./models');
 
