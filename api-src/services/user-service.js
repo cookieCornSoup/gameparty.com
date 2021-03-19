@@ -46,7 +46,9 @@ class UserService {
                     'password': hashPassword,
                     'salt': salt
                 });
-                return createResult;
+                return {
+                    'email' : email
+                };
             } catch (err) {
                 throw new ServiceError(Status.DB_ERROR, err.message);
             }
