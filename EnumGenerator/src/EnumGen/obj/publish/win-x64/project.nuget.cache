@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wA94Fi3PYNWo05hD3m77nzFKr6aV8kj+PRcLYasmzRCTnTr0AT2lwMZbXKz1pp8V+Wn+lQ4MN5/nhAb8x5hYSQ==",
+  "dgSpecHash": "ArUSe0scUbUcPCE4nJjBbbzm71Su6LBYpZrudpW8qfRk7iPXHVKXDdky7VtbFd35w5xKBbsb/wPgndsCJ9MAkQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\shlif\\Documents\\GitHub\\gameparty.com\\EnumGenerator\\src\\EnumGen\\EnumGenerator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\shlif\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.12\\microsoft.netcore.app.runtime.win-x64.3.1.12.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.12\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.12.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.12\\microsoft.aspnetcore.app.runtime.win-x64.3.1.12.nupkg.sha512"
+    "C:\\Users\\shlif\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }

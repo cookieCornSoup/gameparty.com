@@ -1,0 +1,2 @@
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\publish\win10\EnumGenerator.pdb
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\publish\win10\EnumGenerator.exe
