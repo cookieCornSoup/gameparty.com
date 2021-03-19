@@ -26,7 +26,7 @@ namespace EnumGenerator
             foreach (var value in enums.Datas)
             {
                 enumBuilder.AppendLine($@"
-        //{value.Description}
+          //{value.Description}
           {value.Name} = {value.Value};
                 ");
             }
