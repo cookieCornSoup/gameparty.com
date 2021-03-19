@@ -22,7 +22,7 @@ namespace EnumGenerator
             if (args.Length == 0)
             {
 
-            }
+            } 
 
             SerializedEnum serializedEnum = Newtonsoft.Json.JsonConvert.DeserializeObject<SerializedEnum>(readedJson);
             serializedEnum.Datas = serializedEnum.Datas.OrderBy(x => x.Value).ToList();
