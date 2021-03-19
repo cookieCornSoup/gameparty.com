@@ -1,0 +1,15 @@
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\EnumGen.exe
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\EnumGen.deps.json
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\EnumGen.runtimeconfig.json
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\EnumGen.runtimeconfig.dev.json
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\EnumGen.dll
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\EnumGen.pdb
+C:\Users\shlif\source\repos\EnumGen\EnumGen\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.csprojAssemblyReference.cache
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.AssemblyInfoInputs.cache
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.AssemblyInfo.cs
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.csproj.CoreCompileInputs.cache
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.csproj.CopyComplete
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.dll
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.pdb
+C:\Users\shlif\source\repos\EnumGen\EnumGen\obj\Debug\netcoreapp3.1\EnumGen.genruntimeconfig.cache

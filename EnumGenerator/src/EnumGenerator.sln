@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumGenerator", "EnumGenerator\EnumGenerator.csproj", "{9A2BAF25-F935-4535-BF83-529A43304C3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumGenerator", "EnumGen\EnumGenerator.csproj", "{3EA9F990-3FA6-4855-A0E8-2D4867DB1B01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9A2BAF25-F935-4535-BF83-529A43304C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A2BAF25-F935-4535-BF83-529A43304C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A2BAF25-F935-4535-BF83-529A43304C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A2BAF25-F935-4535-BF83-529A43304C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA9F990-3FA6-4855-A0E8-2D4867DB1B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA9F990-3FA6-4855-A0E8-2D4867DB1B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA9F990-3FA6-4855-A0E8-2D4867DB1B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA9F990-3FA6-4855-A0E8-2D4867DB1B01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D5F43617-DE5B-4E50-BA36-38560D59ED2B}
+		SolutionGuid = {FFF2DCA7-B7D5-4E71-9A4C-F2B9D7A3909E}
 	EndGlobalSection
 EndGlobal

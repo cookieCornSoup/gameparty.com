@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6PiClf9tSqI9TOIP0Kbk7EGr0AbY2k4urASVfsnGvJX9g7IV9aKP+90GspvMXzqmXGruQg2UOt8xH1A9/NzsVw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shlif\\Documents\\GitHub\\gameparty.com\\EnumGenerator\\src\\EnumGen\\EnumGenerator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shlif\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
