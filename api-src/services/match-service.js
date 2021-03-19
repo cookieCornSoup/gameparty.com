@@ -11,7 +11,7 @@ class MatchService {
 
     }
 
-    
+
     async findMatchById(matchId) {
         try {
             const matchData = models.Match.findOne({ where: { id: matchId } });
@@ -46,7 +46,7 @@ class MatchService {
             if(user.match_id !== null){
                   const updatedUser = await models.User.update({match_id : null},{where:{id:userId}});
                   if(updatedUser){
-                     return true;
+                     return true; //유저 방 나가기 성공
                   }
                   else{
                     throw new ServiceError(Status.DB_ERROR, "유저 방 나가기 실패")

@@ -3,7 +3,7 @@
 // author email : shlifedev@gmail.com
 
 const express  = require('express');
-const { createMatch } = require('../controller/match-controller');
+const { createMatch, joinMatch, leaveMatch } = require('../controller/match-controller');
 const router   = express.Router();
 
 const checkAuth = require('../middlewares/check-auth');  
@@ -24,15 +24,17 @@ router.get('/',  (req,res)=>{res.send('zz');});
 // 2. 요청 플레이어가 방에 입장한 상태여야함.
 router.delete('/',  checkAuth);
 
-// 방 입장하기
-// 1. 다른방에 입장한 상태가 아니어야 함.
-router.post('/match/join/:id')  
 
 // 방 나가기
 // 1. 방에 입장한 상태여야함
-router.post('/match/leave/:id') 
+router.post('/leave', checkAuth, leaveMatch); 
 
+// 방 입장하기
+// 1. 다른방에 입장한 상태가 아니어야 함.
+router.post('/:roomId',  checkAuth, joinMatch );
 
+ 
+ 
 module.exports ={
   router,
   url : URL
