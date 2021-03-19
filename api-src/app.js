@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const sequelize = require('./models/index').sequelize;
 require('dotenv').config();
+const {swaggerUi, specs} = require('./modules/swagger');
 
 const models = require('./models');
 
@@ -20,9 +21,7 @@ app.use(session({ secret: 'x7n3816x019327v9n9x8z0782', resave: false, saveUninit
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
+app.use(bodyParser.urlencoded({ extended: false })); 
 route.executeRoute(app);
 // view engine
 app.set("view engine", 'ejs');
@@ -53,6 +52,7 @@ models.Match.destroy({
 // tests
 
 
+ 
 // const userService = require('./services/userService');
 // for(let i = 0; i < 1000; i++){ 
 //   const id = 'test'+i+'@gmail.com';
@@ -61,6 +61,8 @@ models.Match.destroy({
 //   userService.create(id,pw,salt); 
 // }
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
 var port = 3001;

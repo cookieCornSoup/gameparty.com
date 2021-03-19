@@ -11,6 +11,7 @@ class MatchService {
 
     }
 
+    
     async findMatchById(matchId) {
         try {
             const matchData = models.Match.findOne({ where: { id: matchId } });
@@ -38,6 +39,25 @@ class MatchService {
     }
 
 
+    // 유저 매치 퇴장
+    async leaveMatch(userId){
+        const user = await userService.findUserById(userId);
+        if(user){
+            if(user.match_id !== null){
+                  const updatedUser = await models.User.update({match_id : null},{where:{id:userId}});
+                  if(updatedUser){
+                     return true;
+                  }
+                  else{
+                    throw new ServiceError(Status.DB_ERROR, "유저 방 나가기 실패")
+                  }
+            }
+        }else{
+            throw new ServiceError(Status.DB_ERROR, "유저id를 찾지 못했습니다.")
+        }
+    }
+
+    //  방 생성 및 입장
     async createAndJoinMatch(userId, title, description, gametype, matchtype) {
         const user = await userService.findUserById(userId);
         if (user) {
