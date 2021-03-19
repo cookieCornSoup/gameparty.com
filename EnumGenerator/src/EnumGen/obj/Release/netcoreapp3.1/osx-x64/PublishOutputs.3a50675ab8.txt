@@ -1,0 +1,2 @@
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\macos\EnumGenerator.pdb
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\macos\EnumGenerator

@@ -1,0 +1,15 @@
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\EnumGenerator.exe
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\EnumGenerator.deps.json
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\EnumGenerator.runtimeconfig.json
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\EnumGenerator.runtimeconfig.dev.json
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\EnumGenerator.dll
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\EnumGenerator.pdb
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.csprojAssemblyReference.cache
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.AssemblyInfoInputs.cache
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.AssemblyInfo.cs
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.csproj.CoreCompileInputs.cache
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.csproj.CopyComplete
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.dll
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.pdb
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\obj\Release\netcoreapp3.1\EnumGenerator.genruntimeconfig.cache

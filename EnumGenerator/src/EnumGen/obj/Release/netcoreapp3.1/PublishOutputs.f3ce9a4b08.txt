@@ -1,0 +1,6 @@
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\publish\EnumGenerator.exe
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\publish\EnumGenerator.dll
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\publish\EnumGenerator.deps.json
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\publish\EnumGenerator.runtimeconfig.json
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\publish\EnumGenerator.pdb
+C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\bin\Release\netcoreapp3.1\publish\Newtonsoft.Json.dll
