@@ -17,7 +17,7 @@ nupkg/
 *.userosscache
 *.sln.docstates
 
-# Build results 
+# Build results  
 bld/
 [Bb]in/
 [Oo]bj/

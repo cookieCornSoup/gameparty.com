@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_LastSelectedProfileId>C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\Properties\PublishProfiles\win10.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\shlif\Documents\GitHub\gameparty.com\EnumGenerator\src\EnumGen\Properties\PublishProfiles\macos.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
 </Project>
