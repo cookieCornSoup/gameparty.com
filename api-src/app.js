@@ -31,15 +31,14 @@ app.set("view engine", 'ejs');
 app.use(express.static('public'));
 
  
-
-// 매치 초기화
-// models.Match.destroy({
-//   where:{}
-// }).then(()=>{ 
-//    console.log("모든 매치 삭제됨");
-// }).catch((err)=>{
-//    console.log("에러" + err);
-// });
+ 
+models.Match.destroy({
+  where:{}
+}).then(()=>{ 
+   console.log("모든 매치 삭제됨");
+}).catch((err)=>{
+   console.log("에러" + err);
+});
 
 
 // sequelize.sync({
@@ -71,10 +70,7 @@ var port = 3001;
 app.listen(port, function () {
   console.log('server on! http://localhost:' + port); 
   try{
- 
-    models.Match.count().then(x=>{
-       console.log(x);
-    });
+  
     // 방생성 및 입장 테스트
     //  matchService.createAndJoinMatch(1, '테스트', '테스트', 0, 0).then((x)=>{
     //    console.log("로그 ㅡㅡㅡ " + x);

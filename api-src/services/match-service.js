@@ -6,11 +6,20 @@ const userService = require('./user-service');
 
 const UserService = require('./user-service');
 class MatchService {
-    constructor(){
-        this.perMatch = 6; // 6개 단위로 매치를 보여줌
-    }
-    async findMatchList(page) {
-        const count = models.Match.count();
+
+    // 매치 리스트 받아오기
+    async findMatchList() {
+        try {
+            //최근 생성된 데이터 기준으로 여섯개 가져오기
+            const matchData = models.Match.findAll(
+                {
+                    order : [['id', 'DESC']],
+                    limit: 6,
+                });
+            return matchData;
+        } catch (err) { 
+            throw new ServiceError(Status.DB_ERROR, err.message);
+        }
     }
 
 
