@@ -9,18 +9,15 @@ class MatchController {
         const title = req.body.title;
         const desc = req.body.description;
         const gametype = req.body.gametype;
-        const matchtype = req.body.matchtype;
-        if (req.body.description && req.body.gametype && req.body.matchtype) {
+        const matchtype = req.body.matchtype; 
             try {
                 const createResult = await matchService.createAndJoinMatch(userId, title, desc, gametype, matchtype);
                 return res.status(200).json(new Message(0, '방 생성후 입장에 성공했습니다.', createResult));
             } catch (err) {
                 return res.status(400).json(new Message(err.status, err.message, []));
-            }
-        }else{
-            return res.status(400).json(new Message(err.status, err.message, [])); 
+            } 
+        
         }
-    }
 
     async getMatchList(req, res) {
 
