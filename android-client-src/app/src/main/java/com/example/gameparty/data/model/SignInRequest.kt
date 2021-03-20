@@ -1,6 +1,6 @@
 package com.example.gameparty.data.model
 
-data class SignUpRequest(
+data class SignInRequest(
     val status: Int,
     val message: String,
     var data: SignUpReData

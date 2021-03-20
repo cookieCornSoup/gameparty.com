@@ -1,27 +1,18 @@
 package com.example.gameparty.ui.login
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.gameparty.data.LoginRepository
-import com.example.gameparty.data.Result
+import com.example.gameparty.data.login.LoginRepository
+import com.example.gameparty.data.login.Result
 import com.example.gameparty.R
 import com.example.gameparty.data.api.ApiService
-import com.example.gameparty.data.api.MessageCode
-import com.example.gameparty.data.api.RetrofitBuilder
 import com.example.gameparty.data.api.RetrofitInstance
-import com.example.gameparty.data.model.SignUpRequest
-import com.example.gameparty.data.model.SignUpUser
-import okhttp3.ResponseBody
+import com.example.gameparty.data.model.SignInRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
@@ -32,8 +23,9 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     val loginResult: LiveData<LoginResult> = _loginResult
 
 
+
     fun login(email: String, password: String) {
-        // can be launched in a separate asynchronous job
+        //can be launched in a separate asynchronous job
         val result = loginRepository.login(email, password)
 
         if (result is Result.Success) {
@@ -44,8 +36,9 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
         }
 
 
-
     }
+
+
 
     fun loginDataChanged(email: String, password: String) {
         if (!isEmailValid(email)) {
@@ -68,33 +61,6 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     // A placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 8
-    }
-
-
-    fun signUp(email: String, password: String) {
-
-        val retIn = RetrofitInstance.getRetrofitInstance().create(ApiService::class.java)
-        val registerInfo = SignUpUser(email, password)
-
-        retIn.signup(email, password).enqueue(object :
-            Callback<SignUpRequest> {
-            override fun onFailure(call: Call<SignUpRequest>, t: Throwable) {
-
-            }
-
-            override fun onResponse(call: Call<SignUpRequest>, response: Response<SignUpRequest>) {
-                if (response.code() == 200) {
-
-                } else if(response.code() == 400){
-
-                    //중복
-                    if (response.body()!!.status == MessageCode. ){
-
-                    }
-
-                }
-            }
-        })
     }
 
 }

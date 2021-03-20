@@ -16,14 +16,20 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.gameparty.databinding.ActivityLoginBinding
 
 import com.example.gameparty.R
+import com.example.gameparty.data.model.PreferenceUtil
+import com.example.gameparty.ui.home.HomeActivity
 import com.example.gameparty.ui.login.signup.SignUpActivity
 
 class LoginActivity : AppCompatActivity() {
+
+    companion object { lateinit var prefs: PreferenceUtil }
+
 
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        prefs = PreferenceUtil(applicationContext)
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -108,11 +114,16 @@ class LoginActivity : AppCompatActivity() {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
         // TODO : initiate successful logged in experience
+
         Toast.makeText(
                 applicationContext,
                 "$welcome $displayName",
                 Toast.LENGTH_LONG
         ).show()
+
+        val mainIntent = Intent(this, HomeActivity::class.java)
+        startActivity(mainIntent)
+
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
