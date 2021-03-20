@@ -9,15 +9,15 @@ class MatchController {
         const title = req.body.title;
         const desc = req.body.description;
         const gametype = req.body.gametype;
-        const matchtype = req.body.matchtype;
-
-        try {
-            const createResult = await matchService.createAndJoinMatch(userId, title, desc, gametype, matchtype);
-            return res.status(200).json(new Message(0, '방 생성후 입장에 성공했습니다.', createResult));
-        } catch (err) {
-            return res.status(400).json(new Message(err.status, err.message, []));
+        const matchtype = req.body.matchtype; 
+            try {
+                const createResult = await matchService.createAndJoinMatch(userId, title, desc, gametype, matchtype);
+                return res.status(200).json(new Message(0, '방 생성후 입장에 성공했습니다.', createResult));
+            } catch (err) {
+                return res.status(400).json(new Message(err.status, err.message, []));
+            } 
+        
         }
-    }
 
     async getMatchList(req, res) {
 
@@ -40,14 +40,14 @@ class MatchController {
     }
 
     async leaveMatch(req, res) {
-        
+
         const payload = jwt.decode(req.headers['x-access-token']);
         const userId = payload.id;
         matchService.leaveMatch(userId).then((data) => {
-            if(data === true)
-               return res.status(200).json(new Message(0, '매치 퇴장 성공했습니다.', data));
-            else{
-               return res.status(200).json(new Message(Status.DB_ERROR, '방에 입장한 상태가 아닙니다.', data));
+            if (data === true)
+                return res.status(200).json(new Message(0, '매치 퇴장 성공했습니다.', data));
+            else {
+                return res.status(200).json(new Message(Status.DB_ERROR, '방에 입장한 상태가 아닙니다.', data));
             }
         }).catch((err) => {
             return res.status(400).json(new Message(err.status, err.message, []));

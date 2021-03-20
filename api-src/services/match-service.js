@@ -6,9 +6,11 @@ const userService = require('./user-service');
 
 const UserService = require('./user-service');
 class MatchService {
-
-    async findMatchList() {
-
+    constructor(){
+        this.perMatch = 6; // 6개 단위로 매치를 보여줌
+    }
+    async findMatchList(page) {
+        const count = models.Match.count();
     }
 
 
