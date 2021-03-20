@@ -3,7 +3,7 @@
 // author email : shlifedev@gmail.com
 
 const express  = require('express');
-const { createMatch, joinMatch, leaveMatch } = require('../controller/match-controller');
+const { createMatch, joinMatch, leaveMatch, getMatchList } = require('../controller/match-controller');
 const router   = express.Router();
 
 const checkAuth = require('../middlewares/check-auth');  
@@ -17,11 +17,12 @@ const URL = "/api/match";
 router.post('/',  checkAuth, createMatch);
 
 // 매치 가져오기
-router.get('/',  (req,res)=>{res.send('zz');});
+router.get('/',  checkAuth, getMatchList);
  
 // 요청한 유저의 현재있는방 매치 삭제하기
 // 1. 요청 플레이어가 방장이어야 함
 // 2. 요청 플레이어가 방에 입장한 상태여야함.
+// 3. 본인이 퇴장시에 방에 아무도 없어야함 
 router.delete('/',  checkAuth);
 
 
