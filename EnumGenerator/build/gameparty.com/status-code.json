@@ -1,0 +1,60 @@
+{
+  "EnumClassName": "StatusCode",
+  "Datas": [
+    {
+      "Name": "SUCCESS",
+      "Description": "성공",
+      "Value": 0
+    },
+    {
+      "Name": "DB_ERROR",
+      "Description": "데이터 베이스와 통신하는데 문제가 발생함",
+      "Value": 1
+    },
+    {
+      "Name": "DB_USER_NOT_FOUND",
+      "Description": "데이터 베이스에서 유저를 찾지 못함",
+      "Value": 2
+    },
+    {
+      "Name": "WRONG_REQUEST_DATA",
+      "Description": "요청된 데이터가 잘못되었음",
+      "Value": 3
+    },
+    {
+      "Name": "TOKEN_ERROR",
+      "Description": "토큰 오류",
+      "Value": 4
+    },
+    {
+      "Name": "DATA_NOT_FOUND",
+      "Description": "데이터를 찾지 못함",
+      "Value": 5
+    },
+    {
+      "Name": "MATCH_ID_NOT_FUND",
+      "Description": "해당 매치 ID를 찾을 수 없음.",
+      "Value": 2001
+    },
+    {
+      "Name": "WRONG_EMAIL_FORMAT",
+      "Description": "잘못된 이메일 형식",
+      "Value": 100
+    },
+    {
+      "Name": "WRONG_PASSWORD",
+      "Description": "틀린 패스워드",
+      "Value": 101
+    },
+    {
+      "Name": "REQUIRE_PASSWORD",
+      "Description": "비밀번호를 입력하지 않음",
+      "Value": 102
+    },
+    {
+      "Name": "UNKNOWN",
+      "Description": "알 수 없는 오류",
+      "Value": 9999
+    }
+  ]
+}

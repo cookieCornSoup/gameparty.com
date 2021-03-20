@@ -23,10 +23,15 @@ namespace EnumGenerator
         }
 
         static void LoadAndGenerate(string readedJson, string outputPath = null)
-        { 
+        {
+            var targetPath = Path.Combine(outputDirectoryName);
+            if (outputDirectoryName != null)
+                Directory.CreateDirectory(outputDirectoryName);
+
+
             SerializedEnum serializedEnum = Newtonsoft.Json.JsonConvert.DeserializeObject<SerializedEnum>(readedJson);
             serializedEnum.Datas = serializedEnum.Datas.OrderBy(x => x.Value).ToList();  
-            string sortedEnumPath = outputDirectoryName + (Path.GetFileNameWithoutExtension(enumPath)+"_Sorted.json"); 
+            string sortedEnumPath = Path.Combine(outputDirectoryName ,(Path.GetFileNameWithoutExtension(enumPath)+"_Sorted.json")); 
             System.IO.File.WriteAllText(sortedEnumPath, JValue.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(serializedEnum)).ToString(Formatting.Indented)); 
             kotlin.Generate(serializedEnum, GeneratedCodeProccessor);
             js.Generate(serializedEnum,     GeneratedCodeProccessor);
