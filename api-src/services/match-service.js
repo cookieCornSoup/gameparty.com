@@ -108,11 +108,12 @@ class MatchService {
 
                 //이미 매치가 있는경우
                 if (match) {
+                    
+                    user.match_id = matchId;
+                    await user.save();  
+                    console.log("update user :%j", user)
                     //유저 방에 입장시키기
-                    const updateUser = await models.User.update(
-                        { match_id: matchId },
-                        { where: { id: userId, matchId: null } });
-                    if (updateUser) {
+                    if (user.match_id !== null) {
                         return true;
                     }
                     else {
