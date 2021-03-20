@@ -18,7 +18,7 @@ class AuthController {
                 expiresIn: process.env.JWT_EXPIRE, //임시 세션설정
                 issuer: 'shlifedev'
             });
-            return res.status(400).json(new Message(0, "로그인 성공!", token));
+            return res.status(200).json(new Message(0, "로그인 성공!", {token : token}));
 
         }
         catch (err) {

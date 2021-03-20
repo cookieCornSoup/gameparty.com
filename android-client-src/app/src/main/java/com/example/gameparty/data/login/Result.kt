@@ -1,4 +1,4 @@
-package com.example.gameparty.data
+package com.example.gameparty.data.login
 
 /**
  * A generic class that holds a value with its loading status.
@@ -15,4 +15,5 @@ sealed class Result<out T : Any> {
                 is Error -> "Error[exception=$exception]"
         }
     }
+
 }

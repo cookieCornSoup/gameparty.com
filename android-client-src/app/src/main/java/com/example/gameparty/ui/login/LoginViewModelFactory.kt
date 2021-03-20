@@ -2,8 +2,8 @@ package com.example.gameparty.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.gameparty.data.LoginDataSource
-import com.example.gameparty.data.LoginRepository
+import com.example.gameparty.data.login.LoginDataSource
+import com.example.gameparty.data.login.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

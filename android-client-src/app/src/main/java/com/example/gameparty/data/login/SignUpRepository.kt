@@ -1,13 +1,10 @@
-package com.example.gameparty.data
+package com.example.gameparty.data.login
 
 import com.example.gameparty.data.model.LoggedInUser
+import com.example.gameparty.ui.login.LoginActivity
 
-/**
- * Class that requests authentication and user information from the remote data source and
- * maintains an in-memory cache of login status and user credentials information.
- */
+class SignUpRepository (val dataSource: SignUpDataSource){
 
-class LoginRepository(val dataSource: LoginDataSource) {
 
     // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null
@@ -22,14 +19,9 @@ class LoginRepository(val dataSource: LoginDataSource) {
         user = null
     }
 
-    fun logout() {
-        user = null
-        dataSource.logout()
-    }
+    fun signup(email: String, password: String): Result<LoggedInUser> {
 
-    fun login(email: String, password: String): Result<LoggedInUser> {
-        // handle login
-        val result = dataSource.login(email, password)
+        val result = dataSource.signup(email, password)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)
@@ -40,6 +32,8 @@ class LoginRepository(val dataSource: LoginDataSource) {
 
     private fun setLoggedInUser(loggedInUser: LoggedInUser) {
         this.user = loggedInUser
+
+        LoginActivity.prefs.setString("token",user.toString())
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
     }
