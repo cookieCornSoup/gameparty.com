@@ -16,11 +16,21 @@ class MatchController {
             } catch (err) {
                 return res.status(400).json(new Message(err.status, err.message, []));
             } 
-        
-        }
+
+    }
 
     async getMatchList(req, res) {
-
+        try {
+            const matchList = await matchService.findMatchList();
+            if (matchList.length) {
+               return res.status(200).json(new Message(0,  '매치 리스트', matchList));
+            }
+            else{
+                return res.status(200).json(new Message(0, '진행중인 매치 정보가 없습니다.', matchList));
+            }
+        }catch(err){
+               return res.status(400).json(new Message(err.status, err.message));
+        }
     }
 
     // 게임 서버에서 방이 비어있는경우 호출함
