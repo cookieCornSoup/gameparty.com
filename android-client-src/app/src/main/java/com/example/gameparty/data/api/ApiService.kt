@@ -18,7 +18,7 @@ interface ApiService {
     ): Call<SignInRequest>
 
 
-    @POST("api/auth/")
+    @POST("api/auth/login/")
     @FormUrlEncoded
     fun login(
         @Field("email") email: String,

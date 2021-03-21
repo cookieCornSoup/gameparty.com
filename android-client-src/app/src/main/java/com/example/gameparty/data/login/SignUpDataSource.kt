@@ -33,9 +33,7 @@ class SignUpDataSource {
                     if (response.code() == 200) {
 
                         //초기화
-                        responseLoggedInUser.email = response.body()..;
-
-
+                        responseLoggedInUser.email = response.body().toString();
 
                     } else if (response.code() == 400) {
                         //중복
@@ -46,8 +44,10 @@ class SignUpDataSource {
                     }
                 }
             })
+
             //토큰 넘겨주고
             return Result.Success(responseLoggedInUser)
+
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))
         }

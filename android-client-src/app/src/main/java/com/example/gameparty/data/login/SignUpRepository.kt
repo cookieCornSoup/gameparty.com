@@ -3,8 +3,7 @@ package com.example.gameparty.data.login
 import com.example.gameparty.data.model.LoggedInUser
 import com.example.gameparty.ui.login.LoginActivity
 
-class SignUpRepository (val dataSource: SignUpDataSource){
-
+class SignUpRepository(val dataSource: SignUpDataSource) {
 
     // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null
@@ -33,7 +32,8 @@ class SignUpRepository (val dataSource: SignUpDataSource){
     private fun setLoggedInUser(loggedInUser: LoggedInUser) {
         this.user = loggedInUser
 
-        LoginActivity.prefs.setString("token",user.toString())
+        LoginActivity.prefs.setString("token", user!!.token.toString())
+
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
     }
