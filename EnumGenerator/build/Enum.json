@@ -2,12 +2,12 @@
   "EnumClassName": "StatusCode",
   "Datas": [
     {
-      "Name": "Test1"
+      "Name": "Test1",
       "Description": "성공",
       "Value": 0
     },
     {
-      "Name": "Test2"
+      "Name": "Test2",
       "Description": "성공",
       "Value": 1
     }
