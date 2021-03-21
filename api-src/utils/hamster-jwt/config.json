@@ -1,0 +1,6 @@
+{
+    "JWT_PASSWORD" : "password",
+    "ACCESS_TOKEN_EXPIRE" : "3600m",
+    "REFRESH_TOKEN_EXPIRE" : "3600m",
+    "ISSUER" : "shlifedev@gmail.com"
+}

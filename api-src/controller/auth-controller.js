@@ -10,6 +10,7 @@ class AuthController {
     /* 로그인 함수 */
     async signIn(req, res) {
         try {
+  
             const authResult = await AuthService.signIn(req.body.email, req.body.password); 
             const token = jwt.sign({
                 id: authResult.id,
