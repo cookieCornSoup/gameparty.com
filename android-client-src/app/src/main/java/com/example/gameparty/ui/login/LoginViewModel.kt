@@ -7,12 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.gameparty.data.login.LoginRepository
 import com.example.gameparty.data.login.Result
 import com.example.gameparty.R
-import com.example.gameparty.data.api.ApiService
-import com.example.gameparty.data.api.RetrofitInstance
-import com.example.gameparty.data.model.SignInRequest
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
@@ -22,23 +16,17 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
-
-
     fun login(email: String, password: String) {
         //can be launched in a separate asynchronous job
         val result = loginRepository.login(email, password)
 
         if (result is Result.Success) {
             _loginResult.value =
-                LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
+                LoginResult(success = LoggedInUserView(displayName = result.data.email))
         } else {
             _loginResult.value = LoginResult(error = R.string.login_failed)
         }
-
-
     }
-
-
 
     fun loginDataChanged(email: String, password: String) {
         if (!isEmailValid(email)) {
