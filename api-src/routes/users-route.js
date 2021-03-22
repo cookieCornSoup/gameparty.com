@@ -13,6 +13,7 @@ router.get('/users/:id', function(req,res){
   res.send(id); 
 });
 
+ 
 router.post('/users/', UserController.signUp);
  
 
@@ -20,3 +21,4 @@ module.exports ={
   router,
   url : URL
 } ;
+

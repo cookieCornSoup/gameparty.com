@@ -14,7 +14,7 @@ class MatchService {
             const matchData = models.Match.findAll(
                 {
                     order : [['id', 'DESC']],
-                    limit: 6, 
+                    limit: 6,  
                 });
             return matchData;
         } catch (err) {   

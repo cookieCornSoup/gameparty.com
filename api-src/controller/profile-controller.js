@@ -4,7 +4,7 @@ const ProfileService = require('../services/profile-service');
 class ProfileController {
     async getProfile(req, res) {
         const token = jwt.decode(req.headers['x-access-token']);
-        try {
+        try { 
             const result = await ProfileService.findProfileByUserId(req.params.id);
             res.status(200).json(new Message(0, 'Profile GET Result', result));
         }
