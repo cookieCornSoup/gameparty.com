@@ -20,8 +20,7 @@ namespace EnumGenerator
             string genDef = Def;
             genDef = genDef.Replace("@className", enums.EnumClassName);
 
-            StringBuilder enumBuilder = new StringBuilder();
-            int i = 0;
+            StringBuilder enumBuilder = new StringBuilder(); 
             int count = enums.Datas.Count;
             foreach (var value in enums.Datas)
             {

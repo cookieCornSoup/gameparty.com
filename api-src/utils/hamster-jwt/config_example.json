@@ -1,0 +1,6 @@
+{
+    "JWT_PASSWORD" : "password1234",
+    "ACCESS_TOKEN_EXPIRE" : "3600m",
+    "REFRESH_TOKEN_EXPIRE" : "3600m",
+    "ISSUER" : "shlifedev@kkroobbingbbong.com"
+}

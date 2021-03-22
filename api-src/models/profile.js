@@ -9,12 +9,15 @@ module.exports = (sequelize, DataTypes) => {
     
       }  
   };
+
   Profile.init({ 
     nickname: DataTypes.STRING,
     age: DataTypes.TINYINT, 
     sex: DataTypes.TINYINT,
     introduce: DataTypes.STRING,
-    profile_img : DataTypes.STRING
+    profile_img : DataTypes.STRING,
+    discord_nick : DataTypes.STRING,
+    discord_channel : DataTypes.STRING
   }, { 
     sequelize,
     modelName: 'Profile',    

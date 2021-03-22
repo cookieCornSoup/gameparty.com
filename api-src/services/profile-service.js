@@ -50,7 +50,7 @@ class ProfileService {
         }
     }
     // 신규 유저 생성
-    async create(userid, nickname, age, sex, introduce) {
+    async create(userid, nickname, age, sex, introduce, discord_nick, discord_channel) {
         const result = await this.findProfileByUserId(userid);
         //에러 발생시 에러리턴
         if (result) {

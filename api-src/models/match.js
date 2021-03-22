@@ -1,6 +1,7 @@
 'use strict';
 
 const { Model } = require('sequelize');
+//가나다라
 
 module.exports = (sequelize, DataTypes) => {
   class Match extends Model {

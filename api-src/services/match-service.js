@@ -6,7 +6,7 @@ const userService = require('./user-service');
 
 const UserService = require('./user-service');
 class MatchService {
-
+ 
     // 매치 리스트 받아오기
     async findMatchList() {
         try {
@@ -14,16 +14,16 @@ class MatchService {
             const matchData = models.Match.findAll(
                 {
                     order : [['id', 'DESC']],
-                    limit: 6,
+                    limit: 6, 
                 });
             return matchData;
-        } catch (err) { 
+        } catch (err) {   
             throw new ServiceError(Status.DB_ERROR, err.message);
-        }
-    }
+        } 
+    } 
 
-
-    async findMatchById(matchId) {
+   
+    async findMatchById(matchId) {  
         try {
             const matchData = models.Match.findOne({ where: { id: matchId } });
             if (matchData) {

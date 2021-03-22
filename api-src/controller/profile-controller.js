@@ -19,7 +19,7 @@ class ProfileController {
         const token = jwt.decode(req.headers['x-access-token']);
         const userId = token.id; 
         try {
-            const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce);
+            const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce, req.body.discord_id, req.body.discord_channel);
             res.status(201).json(new Message(0, 'Profile Updated!', result));
         }
         catch (err) {

@@ -49,10 +49,27 @@ class JWTHelper {
 
     //어세스 토큰을 리프레시 토큰을 사용하여 재발급합니다.
     accessTokenRefresh(access_token, refresh_token){
-        const isAccessTokenValid = jwt.verify(access_token, this.secret);
-        const isRefreshTokenValid = jwt.verify(access_token, this.refresh_token);
+        const isAccessTokenValid = false; 
+        const isRefreshTokenValid = false;
+        const payload = null;
+        
+        // 기존 토큰 유효성 검증
+        jwt.verify(access_token, this.secret, (err,decoded)=>{
+            // 이곳에서 
+                if(!err) {
+                    isAccessTokenValid = true;
+                    payload = decoded;
+                } 
+        });
+
+        // 리프레시 토큰 유효성 검증
+        jwt.verify(refresh_token, this.refresh_token, (err, decoded)=>{
+            if(!err) 
+                isRefreshTokenValid = true;  
+        });
          
 
+        //  기존 어에스 토큰
         if(isAccessTokenValid && isRefreshTokenValid){
             const payload = jwt.decode(access_token, this.secret);
             return jwt.sign()

@@ -2,6 +2,8 @@
 // 
 // author email : shlifedev@gmail.com
 
+
+  
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -67,9 +69,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
 
-var test = require('./utils/hamster-jwt').signIn({'email' : 'shlifedev@gmail.com'});
+const test = require('./utils/hamster-jwt').signIn({'email' : 'shlifedev@gmail.com'});
 console.log(test);
-var port = 3001;
+const port = 3001;
 app.listen(port, function () {
   console.log('server on! http://localhost:' + port); 
   try{
