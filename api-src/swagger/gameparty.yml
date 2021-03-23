@@ -7,37 +7,11 @@ servers:
 
 
  
-securityDefinitions:
-  petstore_auth:
-    type: oauth2
-    authorizationUrl: 'http://petstore.swagger.io/oauth/dialog'
-    flow: implicit
-    scopes:
-      'write:pets': modify pets in your account
-      'read:pets': read your pets
-  api_key:
-    type: apiKey
-    name: api_key
-    in: header   
+        
 
  
 paths:
   
-  /api/auth/login:
-    post:
-      tags:
-        - user
-      summary: 유저 로그인
-      requestBody:
-        required: true
-        description: 료그인 요청을 보냅니다.
-        content:
-          application/json:
-            schema:
-              $ref:  "#/components/schemas/SignUp"
-      responses:
-        '201':
-          description: Created
   /api/users:
     post:
       tags:
@@ -45,7 +19,7 @@ paths:
       summary: 유저 회원가입
       requestBody:
         required: true
-        description: 회원가입 요청을 보냅니다.
+        description: 회원가입 요청을 위해 email, password를 보냅니다.
         content:
           application/json:
             schema:
@@ -53,6 +27,43 @@ paths:
       responses:
         '201':
           description: Created
+
+ 
+
+
+  /api/auth/login:
+    post:
+      tags:
+        - auth
+      summary: 유저 로그인
+      requestBody:
+        required: true
+        description: 로그인 정보를 담아서 보냅니다.
+        content:
+          application/json:
+            schema:
+              $ref:  "#/components/schemas/SignUp"
+      responses:
+        '200':
+          description: 요청성공
+
+
+  /api/profile/:
+    post:
+      tags:
+        - profile
+      summary: 유저 프로필 등록
+      requestBody:
+        required: true
+        description: 프로필 생성을위해 정보를 등록합니다
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Profile"
+      responses:
+          '200':
+            description: 요청성공
+ 
           
 components:
   schemas:
@@ -74,5 +85,26 @@ components:
         password:
           type: string 
           example: "tjdgo123"
+    Profile:
+      type: object
+      properties:
+        nickname:
+          type: string 
+          example: "먀오이"
+        age:
+          type: integer 
+          example: 23
+        sex:
+          type: integer 
+          example: 0
+        introduce:
+          type: string 
+          example: "안녕하세요. 저는 게임을 좋아하는 사람이에요!"
+        discord_nick:
+          type: string 
+          example: "미야오#1234"
+        discord_channel:
+          type: string 
+          example: "http://discord.com"
 
             
