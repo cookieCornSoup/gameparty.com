@@ -63,7 +63,9 @@ class ProfileService {
                     age: age,
                     sex: sex,
                     introduce: introduce,
-                    userId: userid
+                    userId: userid,
+                    discord_nick : discord_nick,
+                    discord_channel : discord_channel
                 });
                 return create;
             }
