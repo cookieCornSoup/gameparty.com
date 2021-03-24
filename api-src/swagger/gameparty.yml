@@ -1,17 +1,21 @@
-openapi: '3.0.0'
-info:
-  title: API Title
-  version: '1.0'
-servers:
-  - url:  http://localhost:3001/api
-
-
- 
-        
-
- 
 paths:
-  
+
+  /api/users/{id}:
+    get:
+      tags:
+        - user
+      summary: 유저정보를 가져옵니다.
+      parameters:
+        - in: path
+          required: true
+          name: id
+          example: 1
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 성공
+
   /api/users:
     post:
       tags:
@@ -27,6 +31,7 @@ paths:
       responses:
         '201':
           description: Created
+
 
  
 
@@ -48,8 +53,11 @@ paths:
           description: 요청성공
 
 
+
   /api/profile/:
     post:
+      security:
+        - bearerAuth: []
       tags:
         - profile
       summary: 유저 프로필 등록
@@ -106,5 +114,7 @@ components:
         discord_channel:
           type: string 
           example: "http://discord.com"
+
+
 
             

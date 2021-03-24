@@ -3,7 +3,7 @@ const { Status, Message } = require('../global/message');
 const ProfileService = require('../services/profile-service');
 class ProfileController {
     async getProfile(req, res) {
-        const token = jwt.decode(req.headers['x-access-token']);
+        const payload = req.payload;
         try {
             const result = await ProfileService.findProfileByUserId(req.params.id);
             res.status(200).json(new Message(0, 'Profile GET Result', result));
@@ -16,8 +16,8 @@ class ProfileController {
 
     async updateProfile(req, res) {
 
-        const token = jwt.decode(req.headers['x-access-token']);
-        const userId = token.id; 
+        const payload = req.payload;
+        const userId = payload.id; 
         try {
             const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce, req.body.discord_nick, req.body.discord_channel);
             res.status(201).json(new Message(0, 'Profile Updated!', result));
@@ -27,12 +27,9 @@ class ProfileController {
         }
     }
 
-    async createProfile(req, res) {
-        const token = jwt.decode(req.headers['x-access-token']);
-        const userId = token.id;
-        console.log(req.file);
+    async createProfile(req, res) {   
         try{
-            const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce); 
+            const result = await ProfileService.create(req.payload.id, req.body.nickname, req.body.age, req.body.sex, req.body.introduce,req.body.discord_nick, req.body.discord_channel); 
             if (result) {
                 res.status(200).json(new Message(0, 'profile create succesfully', result));
             } else {

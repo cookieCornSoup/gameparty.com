@@ -36,6 +36,12 @@ const swaggerOptions ={
           type: 'http',
           scheme: 'bearer',
           bearerFormat: 'JWT'
+        },
+        apiKeyAuth:
+        { 
+          type: 'apiKey',
+          in: 'header',
+          name: 'X-API-Key'
         }
       }
       
@@ -46,7 +52,7 @@ const swaggerOptions ={
         contact : {name : 'shlifedev'},
         servers : ['http://localhost:3001']
     },
-    ss: [{
+    security: [{
       bearerAuth: []
     }]
   }, 

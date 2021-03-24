@@ -29,7 +29,7 @@ class UserController {
                             issuer: 'shlifedev'
                         });
                         
-                        return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!")); 
+                        return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", {token : token})); 
                     } else { 
                         return res.json(new Message(Status.DB_ERROR, "email already registred", [])); 
                     }

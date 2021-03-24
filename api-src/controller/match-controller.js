@@ -4,7 +4,7 @@ const { Status, Message } = require('../global/message');
 const { joinMatch } = require('../services/match-service');
 class MatchController {
     async createMatch(req, res) {
-        const payload = jwt.decode(req.headers['x-access-token']);
+        const payload = req.payload;
         const userId = payload.id;
         const title = req.body.title;
         const desc = req.body.description;
@@ -39,7 +39,7 @@ class MatchController {
     }
 
     async joinMatch(req, res) {
-        const payload = jwt.decode(req.headers['x-access-token']);
+        const payload = req.payload;
         const roomId = req.params.roomId;
         const userId = payload.id;
         matchService.joinMatch(userId, roomId).then((data) => {
@@ -51,7 +51,7 @@ class MatchController {
 
     async leaveMatch(req, res) {
 
-        const payload = jwt.decode(req.headers['x-access-token']);
+        const payload = req.payload;
         const userId = payload.id;
         matchService.leaveMatch(userId).then((data) => {
             if (data === true)
