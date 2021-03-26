@@ -12,7 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         
       User.belongsTo(models.Match, {foreignKey : "match_id"}); 
   
- 
+    //게임 어카운트 관계설정
+    User.hasMany(models.Recruit, {
+      foreignKey: "userId"
+    });
       //게임 어카운트 관계설정
       User.hasMany(models.GameAccount, {
         foreignKey: "user_id"
