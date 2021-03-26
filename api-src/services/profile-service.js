@@ -42,7 +42,7 @@ class ProfileService {
             throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err.message); 
         } 
     }
-
+ 
     // 신규 유저 생성
     async create(userid, nickname, age, sex, introduce, discord_nick, discord_channel) {
         try { 
@@ -63,7 +63,7 @@ class ProfileService {
                 });
                 return create; 
         } 
-        } catch (error) {
+        } catch (err) {
             throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err.message); 
         } 
     }

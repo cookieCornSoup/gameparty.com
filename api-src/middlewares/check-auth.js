@@ -7,19 +7,16 @@ const jwt = require('jsonwebtoken');
 const { Message, Status } = require('../global/message');
 async function checkAuth(req, res, next) {
     //헤더에서 토큰 가져오기
-    let token = req.headers['authorization'];
+ 
+    let token = req.headers['authorization'];  
     //토큰이 없는경우 로그인 상태 X
     if (!token) {
         return res.status(400).json(new Message(Status.TOKEN_ERROR, "Cannot found token", "not logged in!"));
     }
-    const bearerSpliter = token.split(" ");
-    console.log(bearerSpliter.length);
-    if(bearerSpliter.length != 2){
-        return res.status(400).json(new Message(Status.TOKEN_ERROR, "Cannot found token", "not logged in!"));
-    }
-    
-    token = bearerSpliter[1];
-    console.log(token);
+    const bearerSpliter = token.split(" "); 
+    if(bearerSpliter.length == 2){
+        token = bearerSpliter[1];
+    }   
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
             console.error(err); 

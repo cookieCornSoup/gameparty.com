@@ -33,6 +33,7 @@ class ProfileController {
             res.status(200).json(new Message(0, 'profile create succesfully', result));
         }
         catch(err){
+            console.log(err);
             res.status(err.httpStatus).json(new Message(err.status, err.message, err.data))
         }
        

@@ -9,15 +9,14 @@ const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
 const jwt = require('jsonwebtoken');
-const passwordHelper = require('../utils/helper/password-helper');
-const { create } = require('../services/user-service');
+const passwordHelper = require('../utils/helper/password-helper'); 
 class UserController { 
     async signUp(req, res, next) {      
         try{
             const email = req.body.email;
             const password = req.body.password;
             const encryptResult = passwordHelper.encrypt(password);
-            const createdUser = await create(email, encryptResult.dbHashPassword, encryptResult.dbSalt); 
+            const createdUser = await UserService.create(email, encryptResult.dbHashPassword, encryptResult.dbSalt); 
 
             // 토큰생성
             const token = jwt.sign({
@@ -36,7 +35,7 @@ class UserController {
 
             return res.status(200).json(new Message(0, 'user created!' , result));
         }catch(err){
-            return res.status(err.httpStatus || 400).json(new Message(err.status || 1, err.message || 'unknown signup error'));
+            return res.status(err.httpStatus || 400).json(new Message(err.status || 1, err.message || 'unknown signup error', err.data));
         } 
     }
 

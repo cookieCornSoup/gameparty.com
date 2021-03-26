@@ -2,10 +2,10 @@
 
 class ServiceError extends Error{
     constructor(httpStatus, status, message, data){
-        super(message);
-        this.status = status;
+        super(message); 
         this.httpStatus = httpStatus;
-        this.data = [];
+        this.status = status; 
+        this.data = data || [];
     }   
 }
 
