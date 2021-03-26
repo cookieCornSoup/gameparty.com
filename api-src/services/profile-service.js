@@ -25,7 +25,7 @@ class ProfileService {
         }
     }
 
-
+    // 프로필 업데이트
     async update(userid, nickname, age, sex, introduce) {
         const result = await this.findProfileByUserId(userid);
         if (result) {
@@ -49,7 +49,7 @@ class ProfileService {
             throw new ServiceError(Status.DB_ERROR, "유저 정보를 찾지 못했습니다.");
         }
     }
-    // 신규 유저 생성
+    // 신규 프로필 생성
     async create(userid, nickname, age, sex, introduce, discord_nick, discord_channel) {
         const result = await this.findProfileByUserId(userid);
         //에러 발생시 에러리턴
