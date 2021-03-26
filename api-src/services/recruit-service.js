@@ -12,7 +12,7 @@ class RecruitService {
             const result = await models.Recruit.findByPk(id);
             return result;
         } catch (error) {
-            throw new ServiceError(Status.DB_ERROR, 'recruit delete service error by database error');
+            throw new ServiceError(400, Status.DB_ERROR, 'recruit delete service error by database error');
         }
     }
     async delete(id)
@@ -23,10 +23,10 @@ class RecruitService {
                 const destroyResult = result.destroy();
                 return result;
             }else{
-
+                
             }
         } catch (error) {
-            throw new ServiceError(Status.DB_ERROR, 'recruit delete service error by database error');
+            throw new ServiceError(400, Status.DB_ERROR, 'recruit delete service error by database error');
         }
     }
     async create(title, description, gametype, matchtype, game_skill) {
@@ -39,7 +39,7 @@ class RecruitService {
                 game_skill: game_skill
             });
         } catch (error) {
-            throw new ServiceError(Status.DB_ERROR, 'recruit create error by database error');
+            throw new ServiceError(400, Status.DB_ERROR, 'recruit create error by database error');
         }
     }
 }

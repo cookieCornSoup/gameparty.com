@@ -9,7 +9,7 @@ class ProfileController {
             res.status(200).json(new Message(0, 'Profile GET Result', result));
         }
         catch (err) {
-            res.status(400).json(new Message(err.status, err.message, []))
+            res.status(err.httpStatus).json(new Message(err.status, err.message, err.data))
         }
     }
 
@@ -20,24 +20,20 @@ class ProfileController {
         const userId = payload.id; 
         try {
             const result = await ProfileService.create(userId, req.body.nickname, req.body.age, req.body.sex, req.body.introduce, req.body.discord_nick, req.body.discord_channel);
-            res.status(201).json(new Message(0, 'Profile Updated!', result));
+            res.status(200).json(new Message(0, 'Profile Updated!', result));
         }
         catch (err) {
-            res.status(400).json(new Message(err.status, err.message, []))
+            res.status(err.httpStatus).json(new Message(err.status, err.message, err.data))
         }
     }
 
     async createProfile(req, res) {   
         try{
             const result = await ProfileService.create(req.payload.id, req.body.nickname, req.body.age, req.body.sex, req.body.introduce,req.body.discord_nick, req.body.discord_channel); 
-            if (result) {
-                res.status(200).json(new Message(0, 'profile create succesfully', result));
-            } else {
-                res.status(400).json(new Message(Status.UNKNOWN, 'profile create error', result))
-            }
+            res.status(200).json(new Message(0, 'profile create succesfully', result));
         }
         catch(err){
-            res.status(400).json(new Message(err.status, err.message, []))
+            res.status(err.httpStatus).json(new Message(err.status, err.message, err.data))
         }
        
     }

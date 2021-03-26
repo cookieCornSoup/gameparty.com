@@ -18,8 +18,8 @@ class UserService {
             });
             return user;
         }
-        catch (err) {
-            throw new ServiceError(Status.DB_ERROR, err.message);
+        catch (err) { 
+            throw new ServiceError(400, Status.DB_ERROR, err.message);
         }
     }
     async findUserById(id) {
@@ -32,7 +32,7 @@ class UserService {
             return user;
         }
         catch (err) {
-            throw new ServiceError(Status.DB_ERROR, err.message);
+            throw new ServiceError(400, Status.DB_ERROR, err.message);
         }
     }
     // 신규 유저 생성
@@ -40,10 +40,10 @@ class UserService {
         try{     
             const user = await this.findUserByEmail(email);
             if (!validateEmail(email)) {
-                throw new ServiceError(Status.DB_ERROR, "잘못된 이메일 형식입니다.");
+                throw new ServiceError(400, Status.USERS_WRONG_EMAIL_FORMAT, "잘못된 이메일 형식입니다.");
             }
             if (user) {
-                throw new ServiceError(Status.DB_ERROR, "해당 이메일로 가입된 유저가 이미 있습니다.");
+                throw new ServiceError(409, Status.USERS_WRONG_PASSWORD400, "해당 이메일로 가입된 유저가 이미 있습니다.", {email : email});
             }
             else {
                 const createResult = await models.User.create({
@@ -52,14 +52,14 @@ class UserService {
                     'salt': salt
                 });
                 return {
+                    'id': createResult.id,
                     'email': email
                 };
             }
         }
-        catch (err) { 
-             console.log(err);
+        catch (err) {  
+            throw new ServiceError(err.httpStatus || 400, err.status || 1, 'users database error');
         }    
-            
     }
 }
 

@@ -18,7 +18,7 @@ class GameAccountController{
                 }));
             } 
         }catch(err){
-            res.status(400).json(new Message(err.status, err.message, []))
+            res.status(err.httpStatus).json(new Message(err.status, err.message, err.data))
         }
  
     }  

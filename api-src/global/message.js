@@ -13,7 +13,7 @@ class StatusCode{
       SUCCESS = 0;
             
 
-    //데이터 베이스와 통신하는데 문제가 발생함
+     //데이터 베이스와 통신하는데 문제가 발생함
       DB_ERROR = 1;
             
 

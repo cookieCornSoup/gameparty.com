@@ -9,45 +9,34 @@ const UserService = require('../services/user-service');
 const { Message, Status } = require('../global/message');
 
 const jwt = require('jsonwebtoken');
+const passwordHelper = require('../utils/helper/password-helper');
+const { create } = require('../services/user-service');
 class UserController { 
-    async signUp(req, res, next) {     
-        console.log(req.body);
-        if (StringUtil.validateEmail(req.body.email)) {
-            if (req.body.email && req.body.password) {
-                const encryptResult = PasswordHelper.encrypt(req.body.password);
-                try {
-                    
-                    const result = await UserService.create(req.body.email, encryptResult.dbHashPassword, encryptResult.dbSalt);
-                    if (result) {
-                        res.statusCode = 200;
+    async signUp(req, res, next) {      
+        try{
+            const email = req.body.email;
+            const password = req.body.password;
+            const encryptResult = passwordHelper.encrypt(password);
+            const createdUser = await create(email, encryptResult.dbHashPassword, encryptResult.dbSalt); 
 
-                        const token = jwt.sign({
-                            id: result.id,
-                            email: result.email
-                        }, process.env.JWT_SECRET, {
-                            expiresIn: process.env.JWT_EXPIRE, //임시 세션설정
-                            issuer: 'shlifedev'
-                        });
-                        
-                        return res.json(new Message(Status.SUCCESS, "SignUp Succesfully!", {token : token})); 
-                    } else { 
-                        return res.json(new Message(Status.DB_ERROR, "email already registred", [])); 
-                    }
-                }
-                catch (err) {
-                    console.log("[ERR] " + err);
-                    res.statusCode = 400;
-                    return res.json(new Message(err.status, err.message,[])); 
-                } 
+            // 토큰생성
+            const token = jwt.sign({
+                id: createdUser.id,
+                email: createdUser.email
+            }, process.env.JWT_SECRET, {
+                expiresIn: process.env.JWT_EXPIRE, //임시 세션설정
+                issuer: 'shlifedev'
+            });
+
+
+            const result = {
+                createdUser,
+                token 
             }
-            else {
-                res.statusCode = 400;
-                return res.json(new Message(Status.WRONG_REQUEST_DATA, "Wrong Request Data", [])); 
-            }
-        }
-        else {
-            res.statusCode = 400;
-            return res.json(new Message(Status.WRONG_REQUEST_DATA, "Wrong Email Format", [])); 
+
+            return res.status(200).json(new Message(0, 'user created!' , result));
+        }catch(err){
+            return res.status(err.httpStatus || 400).json(new Message(err.status || 1, err.message || 'unknown signup error'));
         } 
     }
 

@@ -16,7 +16,7 @@ class MatchController {
             } catch (err) {
                 return res.status(400).json(new Message(err.status, err.message, []));
             } 
-
+ 
     }
 
     async getMatchList(req, res) {

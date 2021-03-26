@@ -11,7 +11,7 @@ class LikeController {
                 res.status(200).json(new Message(Status.SUCCESS, "유저 칭찬 등록됨", []));
             } 
         }catch(err){
-            res.status(400).json(new Message(err.status, err.message, []))
+            res.status(err.httpStatus).json(new Message(err.status, err.message, err.data))
         }
     }
 }

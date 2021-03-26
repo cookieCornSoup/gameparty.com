@@ -1,4 +1,4 @@
- 
+'use strict' 
 const ServiceError = require('../exceptions/service');
 const { Status, Message } = require('../global/message'); 
 const models = require('../models');
@@ -15,7 +15,7 @@ class GameAccountService{
             return result;
         }
         catch(err){
-           throw new ServiceError(Status.DB_ERROR, err.message); 
+           throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err.message); 
         }  
     }
     // gameType을 소유하고 있다면 리턴
@@ -28,7 +28,7 @@ class GameAccountService{
             return result;
         }
         catch(err){
-            throw new ServiceError(Status.DB_ERROR, err.message); 
+            throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err.message); 
         } 
     }
 
@@ -45,19 +45,19 @@ class GameAccountService{
             }
         }
         catch(err){
-            throw new ServiceError(Status.DB_ERROR, err.message); 
+            throw new ServiceError(err.httpStatus || 400, err.status || 1, err.message); 
         }
     }
     // 해당 유저가 하는 게임의 정보를 등록
     async create(userId, gametype, nickname){
         const game = await this.findUserGame(userId, gametype); 
         if(game){  
-            throw new ServiceError(Status.DB_ERROR,"이미 요청한 게임을 등록한 유저입니다.");
+            throw new ServiceError(409, Status.GA_ALREADY_EXIST_GAME, "이미 요청한 게임을 등록한 유저입니다.", {userId:userId});
         }else{
             try{
                 const isNickDuplicate = await this.isNicknameDuplicate(gametype, nickname);
                 if(isNickDuplicate === true){
-                    throw new ServiceError(Status.DB_ERROR, "다른 플레이어가 이미 사용중인 게임 닉네임입니다.");
+                    throw new ServiceError(409, Status.GA_ALREADY_EXIST_NICKNAME, "다른 플레이어가 이미 사용중인 게임 닉네임입니다.", {nickname:nickname});
                 }else if(isNickDuplicate === false){
                     
                 const create = await models.GameAccount.create({
@@ -67,12 +67,12 @@ class GameAccountService{
                 })
                 return create;
                 }else{
-                    throw new ServiceError(Status.DB_ERROR, err);
+                    throw new ServiceError(400, Status.DB_ERROR, 'error');
                 } 
             }
             catch(err)
             {
-                throw new ServiceError(Status.DB_ERROR, err.message); 
+                throw new ServiceError(400, Status.DB_ERROR, err.message); 
             } 
         }
     }
@@ -83,7 +83,7 @@ class GameAccountService{
             models.GameAccount.update({uid : uid, verified : 1}, {where : {'user_id' : userId}})
         }
         catch(err){
-            throw new ServiceError(Status.DB_ERROR, err.message); 
+            throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err.message); 
         } 
     }
  

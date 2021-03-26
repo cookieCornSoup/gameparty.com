@@ -18,7 +18,7 @@ class MatchService {
                 });
             return matchData;
         } catch (err) {   
-            throw new ServiceError(Status.DB_ERROR, err.message);
+            throw new ServiceError(400, Status.DB_ERROR, err.message);
         } 
     } 
 
@@ -26,14 +26,10 @@ class MatchService {
     async findMatchById(matchId) {  
         try {
             const matchData = models.Match.findOne({ where: { id: matchId } });
-            if (matchData) {
-                return matchData;
-            } else {
-                return null;
-            }
+            return matchData;
         }
         catch (err) {
-            return null;
+            throw new ServiceError(400, Status.DB_ERROR, 'match service database error');
         }
     }
 

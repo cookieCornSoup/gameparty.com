@@ -18,7 +18,7 @@ class LikeService {
             });   
             return like;
         } catch (err) {
-            throw new ServiceError(Status.DB_ERROR, err);
+            throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err);
         }
     }
 
@@ -33,7 +33,7 @@ where: {
                 }
             });
         } catch (err) {
-            throw new ServiceError(Status.DB_ERROR, err);
+            throw new ServiceError(400, Status.DB_ERROR, err);
         }
     }
 
@@ -43,11 +43,11 @@ where: {
         try{
             //이유를 적지 않았을경우
             if(!reason){
-                throw new ServiceError(Status.WRONG_REQUEST_DATA, "이유를 등록해야 합니다.");
+                throw new ServiceError(400, Status.LIKE_REQUIRE_REASON, "이유를 등록해야 합니다.");
             }
             const like = await this.findUserLike(likerId, targetId); 
             if(like){
-                throw new ServiceError(Status.DB_ERROR, "이미 칭찬한 유저입니다.");
+                throw new ServiceError(409, Status.LIKE_ALREADY_SEND, "이미 칭찬한 유저입니다.", {likerId:likerId, targetId:targetId});
             }else{
                 const createLike = await models.Like.create({
                     reason : reason,
@@ -59,7 +59,7 @@ where: {
          
         }
         catch(err){
-            throw new ServiceError(Status.DB_ERROR, err);
+            throw new ServiceError(err.httpStatus || 400, err.status || Status.DB_ERROR, err);
         }
     }
 
