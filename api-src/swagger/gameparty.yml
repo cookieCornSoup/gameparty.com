@@ -1,5 +1,7 @@
 paths:
 
+
+
   /api/users/{id}:
     get:
       tags:

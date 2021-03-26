@@ -7,6 +7,7 @@ const { Message, Status } = require('../global/message');
 const ServiceError = require('../exceptions/service');
 const models = require('../models');
 const { validateEmail } = require('../utils/validate/stringFormat');
+const { sequelize } = require('../models');
 class UserService {
     async findUserByEmail(email) {
         try {
@@ -36,7 +37,7 @@ class UserService {
     }
     // 신규 유저 생성
     async create(email, hashPassword, salt) { 
-        try{    
+        try{     
             const user = await this.findUserByEmail(email);
             if (!validateEmail(email)) {
                 throw new ServiceError(Status.DB_ERROR, "잘못된 이메일 형식입니다.");
