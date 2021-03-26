@@ -17,26 +17,6 @@
       "Value": 2
     },
     {
-      "Name": "LIKE_REQUIRE_REASON",
-      "Description": "칭찬에 대한 이유가 필요함",
-      "Value": 3001
-    },
-    {
-      "Name": "LIKE_ALREADY_SEND",
-      "Description": "이미 칭찬한 유저입니다.",
-      "Value": 3002
-    },
-    {
-      "Name": "PROFILE_NOT_FOUND",
-      "Description": "프로필을 찾지 못함",
-      "Value": 4001
-    },
-    {
-      "Name": "PROFILE_ALREADY_EXIST",
-      "Description": "프로필이 이미 존재함",
-      "Value": 4001
-    },
-    {
       "Name": "TOKEN_ERROR",
       "Description": "토큰 오류",
       "Value": 4
@@ -67,9 +47,24 @@
       "Value": 2001
     },
     {
-      "Name": "UNKNOWN",
-      "Description": "알 수 없는 오류",
-      "Value": 9999
+      "Name": "LIKE_REQUIRE_REASON",
+      "Description": "칭찬에 대한 이유가 필요함",
+      "Value": 3001
+    },
+    {
+      "Name": "LIKE_ALREADY_SEND",
+      "Description": "이미 칭찬한 유저입니다.",
+      "Value": 3002
+    },
+    {
+      "Name": "PROFILE_NOT_FOUND",
+      "Description": "프로필을 찾지 못함",
+      "Value": 4001
+    },
+    {
+      "Name": "PROFILE_ALREADY_EXIST",
+      "Description": "프로필이 이미 존재함",
+      "Value": 4001
     },
     {
       "Name": "GA_ALREADY_EXIST_GAME",
@@ -80,7 +75,11 @@
       "Name": "GA_ALREADY_EXIST_NICKNAME",
       "Description": "이미 게임이 존재합니다.",
       "Value": 7002
+    },
+    {
+      "Name": "UNKNOWN",
+      "Description": "알 수 없는 오류",
+      "Value": 9999
     }
-    
   ]
 }
