@@ -17,6 +17,12 @@ paths:
       responses:
         '200':
           description: 성공
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiResponse'
 
 
 
@@ -40,6 +46,13 @@ paths:
       responses:
         '201':
           description: Created 
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiResponse'
+                
 
 
 
@@ -62,7 +75,12 @@ paths:
       responses:
         '200':
           description: 요청성공
-
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiResponse'
 
 
 
@@ -85,7 +103,12 @@ paths:
       responses:
           '200':
             description: 요청성공
-
+          '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiResponse'
 
 
 
@@ -93,6 +116,18 @@ paths:
 
 components:
   schemas:
+    
+    WrongEmailFormat:
+      type: object
+      properties:
+        email:
+          type: string 
+          example: "shlifedev@gmail.com"
+        password:
+          type: string 
+          example: "tjdgo123"
+
+
     Login:
       type: object
       properties:
@@ -102,6 +137,8 @@ components:
         password:
           type: string 
           example: "tjdgo123"
+
+
     SignUp:
       type: object
       properties:
@@ -111,6 +148,22 @@ components:
         password:
           type: string 
           example: "tjdgo123"
+
+    ApiResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+          example: 0
+        message:
+          type: string
+          example: "message"
+        data:
+          type: string
+          example: "[]"
+
+
     Profile:
       type: object
       properties:

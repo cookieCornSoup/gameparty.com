@@ -33,7 +33,7 @@ class UserController {
                 token 
             }
 
-            return res.status(200).json(new Message(0, 'user created!' , result));
+            return res.status(201).json(new Message(0, 'user created!' , result));
         }catch(err){
             return res.status(err.httpStatus || 400).json(new Message(err.status || 1, err.message || 'unknown signup error', err.data));
         } 
