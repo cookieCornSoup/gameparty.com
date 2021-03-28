@@ -1,7 +1,7 @@
 import Navbar from './components/common/navbar';
 import Main from './components/homepage/main-container'; 
 import 'bootstrap/dist/css/bootstrap.css';
-import BoardContainer from './components/homepage/user-gameboard';
+import RecruitContainer from './components/homepage/recruit-container';
 import { Component } from 'react'; 
 import LoginPopup from './components/popup/login';
 function App() {
@@ -9,10 +9,10 @@ function App() {
       
     <div>  
       
-      <LoginPopup></LoginPopup>
+      {/* <LoginPopup></LoginPopup> */}
       <Navbar />
       <Main />
-      <BoardContainer/>   
+      <RecruitContainer/>   
     </div>
   )
 }
